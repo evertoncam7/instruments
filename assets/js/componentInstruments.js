@@ -39,7 +39,9 @@ function componentInstrument(opt){
         cordas:6,
         madeira:"",
         mark:[31, 51, 72, 91, 122, 141, 161],
-        numC:1
+        numC:1,
+        corBraco:"#44362F",
+        corMark:"#D7E1DF"
     }
 
     if (opt) {
@@ -53,13 +55,17 @@ function componentInstrument(opt){
                     init.cordas = 6;
                     init.numC = 2;
                     init.casas = 20;
-                    init.mark = [];
+                    init.mark = [31, 51, 72, 91, 122, 141, 161];
+                    init.corBraco = "#44362F";
+                    init.corMark = "#D7E1DF";
                     break;
                 case "Ukulele":
                     init.width = 1100;
                     init.casas = 12;
                     init.cordas = 4;
                     init.mark = [51, 71, 101, 121];
+                    init.corBraco = "#44362F";
+                    init.corMark = "#D7E1DF";
                     break;
                 case "Viola":
                     init.width = 1100;
@@ -67,6 +73,8 @@ function componentInstrument(opt){
                     init.cordas = 5;
                     init.numC = 2;
                     init.mark = [];
+                    init.corBraco = "#44362F";
+                    init.corMark = "#D7E1DF";
                     break;
 
                 case "Baixo":
@@ -75,6 +83,17 @@ function componentInstrument(opt){
                     init.cordas = 4;
                     init.numC = 1;
                     init.mark = [];
+                    init.corBraco = "#44362F";
+                    init.corMark = "#D7E1DF";
+                    break;
+                case "Guitarra":
+                    init.width = 1100;
+                    init.casas = 20;
+                    init.cordas = 6;
+                    init.numC = 1;
+                    init.mark = [31, 51, 71, 91, 122, 141, 161];
+                    init.corBraco = "#DBB87C";
+                    init.corMark = "#44362F";
                     break;
                 default:
                     console.log("Não existe instrumentos.");
@@ -133,6 +152,7 @@ function componentInstrument(opt){
         bxBbrac.style.height = init.height+"px";
 
         bxBbrac.setAttribute("class", "bxBbrac");
+        bxBbrac.style.background = init.corBraco;
         bxB.appendChild(bxBbrac);
 
             const gradeMark = c("div");
@@ -176,6 +196,7 @@ function componentInstrument(opt){
                                         
                                         const boll = c("div");
                                         boll.setAttribute("class", "boll");
+                                        boll.style.background = init.corMark;
                                         const rb1 = ((init.width*1)/100)/2;
                                         boll.style.width = (init.width*1)/100+"px";
                                         boll.style.height = (init.width*1)/100+"px";
@@ -192,6 +213,7 @@ function componentInstrument(opt){
                                         
                                         const boll = c("div");
                                         boll.setAttribute("class", "boll");
+                                        boll.style.background = init.corMark;
                                         const rb2 = ((init.width*1)/100)/2;
                                         boll.style.width = (init.width*1)/100+"px";
                                         boll.style.height = (init.width*1)/100+"px";
@@ -289,11 +311,17 @@ const opt5 = {
 }
 const ct5 = componentInstrument(opt5);
 
+const opt6 = {
+    instrument:"Guitarra"
+}
+const ct6 = componentInstrument(opt6);
+
 container.appendChild(ct.create());
 container.appendChild(ct2.create());
 container.appendChild(ct3.create());
 container.appendChild(ct4.create());
 container.appendChild(ct5.create());
+container.appendChild(ct6.create());
 
 console.log(ct.create());
 console.log(ct2.create());
