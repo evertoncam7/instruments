@@ -47,9 +47,11 @@ function componentInstrument(opt){
     if (opt) {
         if (opt.instrument) {
             switch(opt.instrument){
+                
                 case "Violão":
                     init.width = 1100;
                     break;
+
                 case "Violão12":
                     init.width = 1100;
                     init.cordas = 6;
@@ -59,6 +61,7 @@ function componentInstrument(opt){
                     init.corBraco = "#44362F";
                     init.corMark = "#D7E1DF";
                     break;
+
                 case "Ukulele":
                     init.width = 1100;
                     init.casas = 12;
@@ -67,6 +70,7 @@ function componentInstrument(opt){
                     init.corBraco = "#44362F";
                     init.corMark = "#D7E1DF";
                     break;
+
                 case "Viola":
                     init.width = 1100;
                     init.casas = 19;
@@ -82,10 +86,11 @@ function componentInstrument(opt){
                     init.casas = 20;
                     init.cordas = 4;
                     init.numC = 1;
-                    init.mark = [];
-                    init.corBraco = "#44362F";
-                    init.corMark = "#D7E1DF";
+                    init.mark = [31, 51, 71, 91, 122, 141, 161];
+                    init.corBraco = "#E79A29";
+                    init.corMark = "#44362F";
                     break;
+
                 case "Guitarra":
                     init.width = 1100;
                     init.casas = 20;
@@ -95,6 +100,7 @@ function componentInstrument(opt){
                     init.corBraco = "#DBB87C";
                     init.corMark = "#44362F";
                     break;
+
                 default:
                     console.log("Não existe instrumentos.");
             }
