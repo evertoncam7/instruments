@@ -1,0 +1,137 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    /* position: absolute;
+    width: 100%;
+    height: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+   
+    width: 100%;
+    /* height: 100%; */
+    background: #fff;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* flex-direction: column; */
+    margin: 20px 0px 20px 0px;
+}
+
+.bx{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin: 20px 0px 20px 0px;
+}
+
+.bxHeader{
+    width: 100%;
+    height: 20px;
+    display: flex;
+}
+
+.gradeCount{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bxB{
+    width: 100%;
+    height: 100%;
+    background: darkmagenta;
+}
+
+.bxBbrac{
+    position: relative;
+    width: 700px;
+    height: 100%;
+    background: #44362F;
+}
+
+.gradeMark{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.casaMark{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.boll{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #D7E1DF;
+}
+
+.bxCasa{
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+}
+
+.trasteMark{
+    width: 2px;
+    height: 100%;
+    background: #C7C6BD;
+}
+
+.gradeCordas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bxCorda{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.corda{
+    width: 100%;
+    
+    background: #FBF4E2;
+    margin: 2px;
+}
+
+
+/* ======================= Scroll ========================== */
+
+/* ::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgb(148, 148, 148); 
+} */
