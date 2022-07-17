@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body{
@@ -17,12 +18,12 @@ body{
    
     width: 100%;
     /* height: 100%; */
-    background: #fff;
+    
     /* display: flex;
     align-items: center;
     justify-content: center; */
     /* flex-direction: column; */
-    margin: 20px 0px 20px 0px;
+   
 }
 
 .containerBx{
@@ -30,12 +31,15 @@ body{
     width: 100%;
     margin-bottom: 10px;
 
+    background: linear-gradient(#444, #ccc, #444);
+
 }
 
 .bxTop{
     width: 100%;
-    height: 40px;
+    height: 60px;
     background: #333;
+    border-bottom: 1px solid #777;
 }
 
 .bxTopTitle{
@@ -53,12 +57,15 @@ body{
     overflow: auto;
     margin: 10px auto;
 
+    
+
 }
 
 .bxHeader{
     width: 100%;
     height: 20px;
     display: flex;
+    color: #fff;
 }
 
 .gradeCount{
@@ -173,7 +180,7 @@ body{
     width: 100%;
     height: 200px;
     background: #333;
-    
+    border-top: 1px solid #777;
 }
 
 .bx_left{
@@ -223,6 +230,10 @@ body{
        
        margin: 5px 5px;
     }
+
+    .bxControl{
+        height: 300px;
+    }
 }
 
 
@@ -235,6 +246,8 @@ body{
         justify-content: center;
         align-items: center;
     }
+
+    
 
 }
 
