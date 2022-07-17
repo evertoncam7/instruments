@@ -329,24 +329,36 @@ function componentInstrument(opt){
                 const btn_bx_left = c("div");
                 btn_bx_left.setAttribute("class", "btn_bx_left");
                 btn_bx_left.innerHTML = "ACORDES";
+                btn_bx_left.addEventListener("click", function(){
+                    alert("Clicou!");
+                });
 
                 bxButton.appendChild(btn_bx_left);
 
                 const btn_bx_left2 = c("div");
                 btn_bx_left2.setAttribute("class", "btn_bx_left");
                 btn_bx_left2.innerHTML = "ESCALAS";
+                btn_bx_left2.addEventListener("click", function(){
+                    alert("Clicou!");
+                });
 
                 bxButton.appendChild(btn_bx_left2);
 
                 const btn_bx_left3 = c("div");
                 btn_bx_left3.setAttribute("class", "btn_bx_left");
                 btn_bx_left3.innerHTML = "ARPEJOS";
+                btn_bx_left3.addEventListener("click", function(){
+                    alert(btn_bx_left3.innerHTML);
+                });
 
                 bxButton.appendChild(btn_bx_left3);
 
                 const btn_bx_left4 = c("div");
                 btn_bx_left4.setAttribute("class", "btn_bx_left");
                 btn_bx_left4.innerHTML = "EXERCÍCIOS";
+                btn_bx_left4.addEventListener("click", function(){
+                    alert("Clicou!");
+                });
 
                 bxButton.appendChild(btn_bx_left4);
 

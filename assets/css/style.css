@@ -30,14 +30,14 @@ body{
 
     width: 100%;
     margin-bottom: 10px;
-
-    background: linear-gradient(#444, #ccc, #444);
+    
+    background: #f9f9f9;
 
 }
 
 .bxTop{
     width: 100%;
-    height: 60px;
+    height: 100px;
     background: #333;
     border-bottom: 1px solid #777;
 }
@@ -57,15 +57,13 @@ body{
     overflow: auto;
     margin: 10px auto;
 
-    
-
 }
 
 .bxHeader{
     width: 100%;
     height: 20px;
     display: flex;
-    color: #fff;
+    color: #111;
 }
 
 .gradeCount{
@@ -209,7 +207,15 @@ body{
     cursor: pointer;
 }
 
+@media(max-width:900px){
+    .bx{
+        width: 100%;
+    }
+}
+
 @media(max-width:400px){
+
+   
     
     .bx_left{
 
@@ -245,9 +251,7 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-
-    
+    }    
 
 }
 
