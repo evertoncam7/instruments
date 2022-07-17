@@ -20,6 +20,7 @@ const optionInst = {
 function componentInstrument(opt){
 
     let ca = 0;
+    let widthCasa = 0;
 
     const state = {
         oldState:{
@@ -30,8 +31,6 @@ function componentInstrument(opt){
         }
     }
 
-    
-
     const init = {
         width:1100,
         height:110,
@@ -41,7 +40,8 @@ function componentInstrument(opt){
         mark:[31, 51, 72, 91, 122, 141, 161],
         numC:1,
         corBraco:"#44362F",
-        corMark:"#D7E1DF"
+        corMark:"#D7E1DF",
+        afinacao:["E", "A", "D", "G", "B", "E"]
     }
 
     if (opt) {
@@ -50,6 +50,7 @@ function componentInstrument(opt){
                 
                 case "Violão":
                     init.width = 1100;
+
                     break;
 
                 case "Violão12":
@@ -113,6 +114,7 @@ function componentInstrument(opt){
 
     let casa1 = (((init.width * 10)/100)*31)/100;
     let casa2 = (((init.width * 10)/100)*31)/100;
+    widthCasa = (((init.width * 10)/100)*31)/100;
 
     function c(el){
         return document.createElement(el);
@@ -125,6 +127,21 @@ function componentInstrument(opt){
     function qsa(cl){
         return document.querySelectorAll(cl);
     }
+
+    const containerBx = c("section");
+    containerBx.setAttribute("class", "containerBx");
+
+    const bxTop = c("section");
+    bxTop.setAttribute("class", "bxTop");
+
+        const bxTopTitle = c("section");
+        bxTopTitle.setAttribute("class", "bxTopTitle");
+        bxTopTitle.innerHTML = opt.instrument;
+
+        bxTop.appendChild(bxTopTitle);
+
+    containerBx.appendChild(bxTop);
+
 
     const bx = c("div");
     bx.setAttribute("class", "bx");
@@ -145,25 +162,24 @@ function componentInstrument(opt){
             casa2 = casa2 * 1.05;
         }
 
-        console.log(state.newState);
-
-        bx.appendChild(bxHeader);
+    bx.appendChild(bxHeader);
 
     const bxB = c("div");
     bxB.setAttribute("class", "bxB");
     bxB.style.width = ca+"px";
 
-        const bxBbrac = c("div");
-        
-        bxBbrac.style.height = init.height+"px";
+        // Começo das grades  
 
+        const bxBbrac = c("div");
+        bxBbrac.style.height = init.height+"px";
         bxBbrac.setAttribute("class", "bxBbrac");
         bxBbrac.style.background = init.corBraco;
         bxB.appendChild(bxBbrac);
 
             const gradeMark = c("div");
             gradeMark.setAttribute("class", "gradeMark");
-            bxBbrac.appendChild(gradeMark);
+        
+        bxBbrac.appendChild(gradeMark);
 
             // Aqui depende da configuração da quantidade de casas.
 
@@ -252,9 +268,7 @@ function componentInstrument(opt){
                     const corda = c("div");
                     corda.setAttribute("class", "corda");
                     corda.style.height = espessura+"px";
-                    console.log(espessura);
                     
-
                     bxCorda.appendChild(corda);
                     
                 }
@@ -264,19 +278,108 @@ function componentInstrument(opt){
                 
             }
 
+        bxBbrac.appendChild(gradeCordas);
 
-            bxBbrac.appendChild(gradeCordas);
+            const gradeNotas = c("div");
+            gradeNotas.setAttribute("class", "gradeNotas");
 
-            
+            const dadosCasa = defined_afinacao(init);
+
+            for(let gc = 0; gc < init.cordas; gc++){
+
+                const num_cordas = c("div");
+                num_cordas.setAttribute("class", "num_cordas");
+                num_cordas.setAttribute("data-corda", init.afinacao[gc]);
+
+                    for (let gn = 0; gn < init.casas; gn++) {
+
+                        const gradeNotasCasa = c("div");
+                        gradeNotasCasa.setAttribute("class", "gradeNotasCasa");
+                        gradeNotasCasa.setAttribute("data-casa", (gc+1) + "-" + (gn+1) + "-" + dadosCasa[gc][gn]);
+                        gradeNotasCasa.style.width = (widthCasa = widthCasa * 1.05) + "px";
+
+                        num_cordas.appendChild(gradeNotasCasa);
+                        
+                    }
+
+                gradeNotas.appendChild(num_cordas);
+
+            }
+
+
+        bxBbrac.appendChild(gradeNotas);
+
             
     bx.appendChild(bxB);
+
+
+    // CONTROLES ====================================================================
+
+    const bxControl = c("section");
+    bxControl.setAttribute("class", "bxControl");
+
+        const bx_left = c("article");
+        bx_left.setAttribute("class", "bx_left");
+
+            // Botões
+
+            const bxButton = c("div");
+            bxButton.setAttribute("class", "bxButton");
+
+                const btn_bx_left = c("div");
+                btn_bx_left.setAttribute("class", "btn_bx_left");
+                btn_bx_left.innerHTML = "ACORDES";
+
+                bxButton.appendChild(btn_bx_left);
+
+                const btn_bx_left2 = c("div");
+                btn_bx_left2.setAttribute("class", "btn_bx_left");
+                btn_bx_left2.innerHTML = "ESCALAS";
+
+                bxButton.appendChild(btn_bx_left2);
+
+                const btn_bx_left3 = c("div");
+                btn_bx_left3.setAttribute("class", "btn_bx_left");
+                btn_bx_left3.innerHTML = "ARPEJOS";
+
+                bxButton.appendChild(btn_bx_left3);
+
+                const btn_bx_left4 = c("div");
+                btn_bx_left4.setAttribute("class", "btn_bx_left");
+                btn_bx_left4.innerHTML = "EXERCÍCIOS";
+
+                bxButton.appendChild(btn_bx_left4);
+
+                bx_left.appendChild(bxButton);
+
+            
+
+        bxControl.appendChild(bx_left);
+
+
+
+        const bx_controll2 = c("article");
+        bx_controll2.setAttribute("class", "bx_controll2");
+
+        bxControl.appendChild(bx_controll2);
+
+
+
+
+    containerBx.appendChild(bx);
+    containerBx.appendChild(bxControl);
+
+    
+
+    // FIM CONTROLES =================================================================
+
 
     function data(data){
 
     }
 
     function create(){
-        return bx;
+        return containerBx;
     }
 
     return {
@@ -293,7 +396,8 @@ const container = document.getElementById("id-container");
 
 
 const opt = {
-    instrument:"Violão"
+    instrument:"Violão",
+    afinacao:[]
 }
 const ct = componentInstrument(opt);
 
@@ -329,5 +433,48 @@ container.appendChild(ct4.create());
 container.appendChild(ct5.create());
 container.appendChild(ct6.create());
 
-console.log(ct.create());
-console.log(ct2.create());
+let num = [];
+for (let countN = 0; countN <= 99; countN++) {
+    
+    num.push(countN);
+    
+}
+
+// Min 210
+// Max 1790
+
+
+const mediaTable = [];
+
+function generateNum(qt, soma){
+
+    // const media = soma / qt;
+    let countNum = 0;
+    let conutX = qt;
+    let s = 0;
+    let som = 0;
+
+    for (let index = 0; index < qt; index++) {
+        
+
+        
+        
+    }
+
+}
+
+
+
+generateNum(20, 1000);
+
+
+
+
+// ==================================================================================================
+
+
+
+
+
+
+

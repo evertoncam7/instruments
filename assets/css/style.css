@@ -25,12 +25,34 @@ body{
     margin: 20px 0px 20px 0px;
 }
 
-.bx{
+.containerBx{
+
     width: 100%;
+    margin-bottom: 10px;
+
+}
+
+.bxTop{
+    width: 100%;
+    height: 40px;
+    background: #333;
+}
+
+.bxTopTitle{
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    color: #fff;
+}
+
+.bx{
+    
     display: flex;
     flex-direction: column;
     overflow: auto;
-    margin: 20px 0px 20px 0px;
+    margin: 10px auto;
+
 }
 
 .bxHeader{
@@ -118,10 +140,110 @@ body{
 }
 
 
+.gradeNotas{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  
+
+}
+
+.num_cordas{
+    display:flex;
+    width: 100%;
+    height: 100%;
+
+}
+
+.gradeNotasCasa{
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+.gradeNotasCasa:hover{
+    background: yellowgreen;
+}
+
+/* Controll */
+
+.bxControl{
+    width: 100%;
+    height: 200px;
+    background: #333;
+    
+}
+
+.bx_left{
+    width: 150px;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn_bx_left{
+    padding: 7px 0px;
+    width: 120px;
+    background: #333;
+    color: #fff;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:  5px 5px 10px #272727,
+             -5px -5px 10px #3f3f3f;
+    cursor: pointer;
+}
+
+@media(max-width:400px){
+    
+    .bx_left{
+
+        width: 100%;
+        height: 60px;
+        display: relative;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        overflow: auto;
+    }
+
+    .bxButton{
+        display: flex;
+    }
+
+    .btn_bx_left{
+       
+       margin: 5px 5px;
+    }
+}
+
+
+@media(min-width:400px){
+
+    .containerBx{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+
 /* ======================= Scroll ========================== */
 
 /* ::-webkit-scrollbar {
     width: 12px;
+    https://www.youtube.com/watch?v=zslN9L8DKSE&t=598s
 }
  
 ::-webkit-scrollbar-track {

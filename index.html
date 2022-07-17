@@ -11,6 +11,59 @@
     <div id="id-container" class="container">
 
     </div>
+
+    <script src="assets/js/bd.js"></script>
+    <script src="assets/js/create_afinacao.js"></script>
     <script src="assets/js/componentInstruments.js"></script>
+
 </body>
+
+
+<script>
+
+    const notass = document.querySelectorAll(".gradeNotasCasa");
+
+    const formatNotas = [];
+
+    for (let indexx = 0; indexx < notass.length; indexx++) {
+
+        notass[indexx].addEventListener("click", function(e){
+            
+            formatNotas.push(notass[indexx].dataset.casa);
+            notass[indexx].style.background = "red";
+
+            console.log("=============================================");
+            console.log(formatNotas);
+
+        });
+
+    }
+
+
+
+
+</script>
+
+
 </html>
+
+<!-- 
+
+Site - 12 x 95 ( Manutenção do site, integração aos meios de pagamentos, correios, logística, Seo da loja, integração com as redes sociais e 3 modificações de layout ou tecnicas )
+Mídia - 12 x 350 ( Básico 3 postagem por semana de midias )
+Tráfego - 12 x 450 ( Fazer 1 campanha por mês 'budget da campanha fica por conta do contratante' )
+Relatórios mensais de quantos leads capturados, quanto de visitas no site e parâmetros de comparação entre os meses. 
+
+12 x 895,00
+
+eu 12 x 800
+site 12 x 95,00
+tráfego 200  
+
+Plano de venda de no mínimo de 5000 reais. 
+
+-->
+
+
+
+
