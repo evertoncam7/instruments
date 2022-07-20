@@ -3,15 +3,14 @@
     padding: 0px;
     box-sizing: border-box;
     user-select: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body{
     /* position: absolute;
     width: 100%;
     height: 100%; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
 }
 
 .container{
@@ -38,8 +37,28 @@ body{
 .bxTop{
     width: 100%;
     height: 100px;
-    background: #333;
+    background: #18181C;
     border-bottom: 1px solid #777;
+}
+
+.bxHeader1{
+    width: 100%;
+    height: 50%;
+}
+
+.bxHeader2{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+
+.bxHeader2_{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
 }
 
 .bxTopTitle{
@@ -52,11 +71,18 @@ body{
 
 .bx{
     
-    display: flex;
-    flex-direction: column;
+    
     overflow: auto;
     margin: 10px auto;
 
+}
+
+.bx_inner_right{
+
+    width: 40px;
+    height: 100%;
+    background: red;
+    z-index: 90;
 }
 
 .bxHeader{
@@ -166,6 +192,9 @@ body{
     height: 100%;
     width: 100%;
     z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gradeNotasCasa:hover{
@@ -177,8 +206,10 @@ body{
 .bxControl{
     width: 100%;
     height: 200px;
-    background: #333;
+    background: #18181C;
     border-top: 1px solid #777;
+    display: flex;
+    justify-content: space-between;
 }
 
 .bx_left{
@@ -194,7 +225,7 @@ body{
 .btn_bx_left{
     padding: 7px 0px;
     width: 120px;
-    background: #333;
+    background: linear-gradient(145deg, #161619, #1a1a1e);
     color: #fff;
     font-size: 0.8em;
     margin-bottom: 10px;
@@ -202,21 +233,89 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow:  5px 5px 10px #272727,
-             -5px -5px 10px #3f3f3f;
+    box-shadow:  5px 5px 10px #0d0d10,
+             -5px -5px 10px #232328;
     cursor: pointer;
+}
+
+.bx_controll2{
+    flex-basis: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bx_controll2Center{
+    width: 98%;
+    height: 90%;
+    border-radius: 5px;
+    background: #18181C;
+    /* box-shadow: inset 5px 5px 10px #131317,
+            inset -5px -5px 10px #1d1d21; */
+}
+
+.btn_bx_left:active{
+    box-shadow:  1px 1px 10px #272727,
+             -1px -1px 10px #3f3f3f;
+}
+
+.big-footer{
+    width: 100%;
+    height: 200px;
+    background: #222;
+}
+
+footer{
+    width: 100%;
+    height: 40px;
+    background: #111;
+}
+
+.bx_pages{
+    height: 100%;
+}
+
+.bx_pages_pages{
+    color: #fff;
+    height: 100%;
+}
+
+.container_select{
+    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_select_bx{
+    width: 100%;
+}
+
+.container_select_bx_select{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.boll_2{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: green;
+    border: 2px solid #fff;
 }
 
 @media(max-width:900px){
     .bx{
         width: 100%;
+       
     }
 }
 
 @media(max-width:400px){
 
-   
-    
     .bx_left{
 
         width: 100%;
@@ -239,12 +338,25 @@ body{
 
     .bxControl{
         height: 300px;
+        flex-wrap: wrap;
     }
+
+    .desktop{
+        display: none;
+    }
+
+    .bx_controll2{
+        height: calc(100% - 60px);
+    }
+
+    
+
 }
 
 
 @media(min-width:400px){
 
+    
     .containerBx{
         width: 100%;
         display: flex;
@@ -252,6 +364,8 @@ body{
         justify-content: center;
         align-items: center;
     }    
+
+    
 
 }
 

@@ -32,6 +32,7 @@ function componentInstrument(opt){
     }
 
     const init = {
+        name: "",
         width:1100,
         height:110,
         casas:20,
@@ -46,14 +47,18 @@ function componentInstrument(opt){
 
     if (opt) {
         if (opt.instrument) {
+
             switch(opt.instrument){
                 
                 case "Violão":
+
+                    init.name = "Violão";
                     init.width = 1100;
 
                     break;
 
                 case "Violão12":
+                    init.name = "Violão de 12 cordas";
                     init.width = 1100;
                     init.cordas = 6;
                     init.numC = 2;
@@ -64,6 +69,7 @@ function componentInstrument(opt){
                     break;
 
                 case "Ukulele":
+                    init.name = "Ukulele";
                     init.width = 1100;
                     init.casas = 12;
                     init.cordas = 4;
@@ -73,6 +79,7 @@ function componentInstrument(opt){
                     break;
 
                 case "Viola":
+                    init.name = "Viola Caipira";
                     init.width = 1100;
                     init.casas = 19;
                     init.cordas = 5;
@@ -83,6 +90,7 @@ function componentInstrument(opt){
                     break;
 
                 case "Baixo":
+                    init.name = "Contrabaixo";
                     init.width = 1100;
                     init.casas = 20;
                     init.cordas = 4;
@@ -93,6 +101,7 @@ function componentInstrument(opt){
                     break;
 
                 case "Guitarra":
+                    init.name = "Guitarra elétrica";
                     init.width = 1100;
                     init.casas = 20;
                     init.cordas = 6;
@@ -134,11 +143,29 @@ function componentInstrument(opt){
     const bxTop = c("section");
     bxTop.setAttribute("class", "bxTop");
 
-        const bxTopTitle = c("section");
-        bxTopTitle.setAttribute("class", "bxTopTitle");
-        bxTopTitle.innerHTML = opt.instrument;
+        const bxHeader1 = c("div");
+        bxHeader1.setAttribute("class", "bxHeader1");
 
-        bxTop.appendChild(bxTopTitle);
+        const bxHeader2 = c("div");
+        bxHeader2.setAttribute("class", "bxHeader2");
+
+            const bxHeader21 = c("div");
+            bxHeader21.setAttribute("class", "bxHeader2_");
+            bxHeader21.innerHTML = init.name;
+
+            const bxHeader22 = c("div");
+            bxHeader22.setAttribute("class", "bxHeader2_");
+            
+
+            const bxHeader23 = c("div");
+            bxHeader23.setAttribute("class", "bxHeader2_");
+
+            bxHeader2.appendChild(bxHeader21);
+            bxHeader2.appendChild(bxHeader22);
+            bxHeader2.appendChild(bxHeader23);
+
+        bxTop.appendChild(bxHeader1);
+        bxTop.appendChild(bxHeader2);
 
     containerBx.appendChild(bxTop);
 
@@ -148,6 +175,8 @@ function componentInstrument(opt){
     
         const bxHeader = c("div");
         bxHeader.setAttribute("class", "bxHeader");
+
+            
 
         let countCasas = init.casas;
         for (let indexCount = init.casas; indexCount >= 1; indexCount--) {
@@ -162,7 +191,17 @@ function componentInstrument(opt){
             casa2 = casa2 * 1.05;
         }
 
-    bx.appendChild(bxHeader);
+    const container_bx = c("div");
+    container_bx.setAttribute("class","container_bx");
+
+    const bx_inner_right = c("div");
+    bx_inner_right.setAttribute("class","bx_inner_right");
+    // bx_inner_right.innerHTML = "ffwfwfwf";
+
+    
+
+
+    container_bx.appendChild(bxHeader);
 
     const bxB = c("div");
     bxB.setAttribute("class", "bxB");
@@ -296,6 +335,7 @@ function componentInstrument(opt){
                         const gradeNotasCasa = c("div");
                         gradeNotasCasa.setAttribute("class", "gradeNotasCasa");
                         gradeNotasCasa.setAttribute("data-casa", (gc+1) + "-" + (gn+1) + "-" + dadosCasa[gc][gn]);
+                        gradeNotasCasa.setAttribute("id", (gc+1) + "-" + (gn+1) + "-" + dadosCasa[gc][gn]);
                         gradeNotasCasa.style.width = (widthCasa = widthCasa * 1.05) + "px";
 
                         num_cordas.appendChild(gradeNotasCasa);
@@ -310,7 +350,9 @@ function componentInstrument(opt){
         bxBbrac.appendChild(gradeNotas);
 
             
-    bx.appendChild(bxB);
+    container_bx.appendChild(bxB);
+    bx.appendChild(container_bx);
+    // bx.appendChild(bx_inner_right);
 
 
     // CONTROLES ====================================================================
@@ -322,15 +364,16 @@ function componentInstrument(opt){
         bx_left.setAttribute("class", "bx_left");
 
             // Botões
+            const comp = component_pages();
 
-            const bxButton = c("div");
+            const bxButton = c("nav");
             bxButton.setAttribute("class", "bxButton");
 
                 const btn_bx_left = c("div");
                 btn_bx_left.setAttribute("class", "btn_bx_left");
                 btn_bx_left.innerHTML = "ACORDES";
                 btn_bx_left.addEventListener("click", function(){
-                    alert("Clicou!");
+                    bx_controll2Center.appendChild(comp.create(fn_acordes(gradeNotas)));
                 });
 
                 bxButton.appendChild(btn_bx_left);
@@ -339,7 +382,8 @@ function componentInstrument(opt){
                 btn_bx_left2.setAttribute("class", "btn_bx_left");
                 btn_bx_left2.innerHTML = "ESCALAS";
                 btn_bx_left2.addEventListener("click", function(){
-                    alert("Clicou!");
+                    bx_controll2Center.appendChild(comp.create("TESTE ESCALAS"));
+                    console.log(comp.pages);
                 });
 
                 bxButton.appendChild(btn_bx_left2);
@@ -348,7 +392,9 @@ function componentInstrument(opt){
                 btn_bx_left3.setAttribute("class", "btn_bx_left");
                 btn_bx_left3.innerHTML = "ARPEJOS";
                 btn_bx_left3.addEventListener("click", function(){
-                    alert(btn_bx_left3.innerHTML);
+                    
+                    bx_controll2Center.appendChild(comp.create("TESTE ARPEJOS"));
+                    console.log(comp.pages);
                 });
 
                 bxButton.appendChild(btn_bx_left3);
@@ -357,30 +403,85 @@ function componentInstrument(opt){
                 btn_bx_left4.setAttribute("class", "btn_bx_left");
                 btn_bx_left4.innerHTML = "EXERCÍCIOS";
                 btn_bx_left4.addEventListener("click", function(){
-                    alert("Clicou!");
+                    bx_controll2Center.appendChild(comp.create("TESTE EXERCÍCIOS"));
                 });
 
                 bxButton.appendChild(btn_bx_left4);
 
                 bx_left.appendChild(bxButton);
 
-            
-
         bxControl.appendChild(bx_left);
 
 
+        // AQUI VAI OS ELEMENTOS DO CENTRO
 
         const bx_controll2 = c("article");
         bx_controll2.setAttribute("class", "bx_controll2");
 
-        bxControl.appendChild(bx_controll2);
+            const bx_controll2Center = c("article");
+            bx_controll2Center.setAttribute("class", "bx_controll2Center");
+
+        bx_controll2.appendChild(bx_controll2Center);
+    bxControl.appendChild(bx_controll2);
+
+        // ==================================
 
 
+        const bx_right = c("article");
+        bx_right.setAttribute("class", "bx_left desktop");
+
+            // Botões
+
+            const bxButtonRight = c("nav");
+            bxButtonRight.setAttribute("class", "bxButton");
+
+                const btn_bx_right = c("div");
+                btn_bx_right.setAttribute("class", "btn_bx_left");
+                btn_bx_right.innerHTML = "AFINAÇÃO";
+                btn_bx_right.addEventListener("click", function(){
+                    bx_controll2Center.appendChild(comp.create("TESTE AFINAÇÃO"));
+                });
+
+                bxButtonRight.appendChild(btn_bx_right);
+
+                const btn_bx_right2 = c("div");
+                btn_bx_right2.setAttribute("class", "btn_bx_left");
+                btn_bx_right2.innerHTML = "MÚSICAS";
+                btn_bx_right2.addEventListener("click", function(){
+
+                    // Aqui está sendo criado uma página e exibindo a na tela.
+                    bx_controll2Center.appendChild(comp.create("TESTE MÚSICAS"));
+                });
+
+                bxButtonRight.appendChild(btn_bx_right2);
+
+                const btn_bx_right3 = c("div");
+                btn_bx_right3.setAttribute("class", "btn_bx_left");
+                btn_bx_right3.innerHTML = "ACESSÓRIOS";
+                btn_bx_right3.addEventListener("click", function(){
+                    bx_controll2Center.appendChild(comp.create("TESTE ACESSÓRIOS"));
+                });
+
+                bxButtonRight.appendChild(btn_bx_right3);
+
+                const btn_bx_right4 = c("div");
+                btn_bx_right4.setAttribute("class", "btn_bx_left");
+                btn_bx_right4.innerHTML = "TÉCNICAS";
+                btn_bx_right4.addEventListener("click", function(){
+                    bx_controll2Center.appendChild(comp.create("TESTE TÉCNICAS"));
+                });
+
+                bxButtonRight.appendChild(btn_bx_right4);
+
+                bx_right.appendChild(bxButtonRight);            
+
+        bxControl.appendChild(bx_right);
 
 
     containerBx.appendChild(bx);
     containerBx.appendChild(bxControl);
 
+    
     
 
     // FIM CONTROLES =================================================================
