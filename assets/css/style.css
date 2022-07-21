@@ -70,19 +70,34 @@ body{
 }
 
 .bx{
-    
-    
-    overflow: auto;
-    margin: 10px auto;
 
+    max-width: 1100px;
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+    overflow: auto;
+    /* margin: 10px 0px; */
+    display: flex;
+}
+
+.bx_inner{
+    height: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.container_bx{
+   
+    height: 100%;
 }
 
 .bx_inner_right{
 
-    width: 40px;
+    width: 30px;
     height: 100%;
-    background: red;
-    z-index: 90;
+   
+      
+    
 }
 
 .bxHeader{
@@ -100,8 +115,8 @@ body{
 
 .bxB{
     width: 100%;
-    height: 100%;
-    background: darkmagenta;
+    height: calc(100% - 20px);
+    
 }
 
 .bxBbrac{
@@ -173,6 +188,7 @@ body{
 
 .gradeNotas{
 
+    position: absolute;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -182,7 +198,10 @@ body{
 }
 
 .num_cordas{
+
+    position:relative;
     display:flex;
+   
     width: 100%;
     height: 100%;
 
@@ -300,9 +319,9 @@ footer{
 
 
 .boll_2{
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    width: 25px;
+    height: 15px;
+    border-radius: 7.5px;
     background: green;
     border: 2px solid #fff;
 }
@@ -312,6 +331,8 @@ footer{
         width: 100%;
        
     }
+
+    
 }
 
 @media(max-width:400px){
@@ -347,6 +368,12 @@ footer{
 
     .bx_controll2{
         height: calc(100% - 60px);
+    }
+
+    .bx_pages_pages{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     

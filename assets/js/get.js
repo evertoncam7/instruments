@@ -37,7 +37,21 @@ function select(cl){
 }
 
 function notaTitulo(comp){
-    return comp.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector(".bxTop").querySelector(".bxHeader2").querySelectorAll(".bxHeader2_")[1].innerHTML = state.nota;
+    console.log();
+    return comp.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector(".bxTop").querySelector(".bxHeader2").querySelectorAll(".bxHeader2_")[1].innerHTML = state.nota;
+}
+
+function widthBraco(numCasa, init){
+
+    let s = (((init.width * 10)/100)*31)/100; 
+
+    for (let index = 0; index < numCasa; index++) {
+        
+        s += s*0.2;
+        
+    }
+
+    return s;
 }
 
 

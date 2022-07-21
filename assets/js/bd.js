@@ -98,6 +98,17 @@ const bd = [
         cordasNull:[],
         dedilhado:[],
         description:""
+    },
+    {
+        id:5, 
+        name:"D#m",
+        som:"",
+        group:"D#m",
+        notas:['4-17-B', '5-16-E', '6-18-G', '3-19-E'],
+        casa:1,
+        cordasNull:[],
+        dedilhado:[],
+        description:""
     }
 ];
 

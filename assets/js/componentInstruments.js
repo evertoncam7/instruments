@@ -19,6 +19,8 @@ const optionInst = {
 
 function componentInstrument(opt){
 
+    let widthtotal = 0;
+
     let ca = 0;
     let widthCasa = 0;
 
@@ -87,6 +89,7 @@ function componentInstrument(opt){
                     init.mark = [];
                     init.corBraco = "#44362F";
                     init.corMark = "#D7E1DF";
+                    init.afinacao = ["B", "E", "G#", "B", "E"];
                     break;
 
                 case "Baixo":
@@ -121,9 +124,12 @@ function componentInstrument(opt){
 
     // Equivale as primeiras casas 
 
-    let casa1 = (((init.width * 10)/100)*31)/100;
-    let casa2 = (((init.width * 10)/100)*31)/100;
-    widthCasa = (((init.width * 10)/100)*31)/100;
+    const w = (init.width - 50);
+
+    let casa1 = (((w * 10)/100)*31)/100;
+    let casa2 = (((w * 10)/100)*31)/100;
+    widthCasa = (((w * 10)/100)*31)/100;
+    let somaCasa = 0;
 
     function c(el){
         return document.createElement(el);
@@ -172,7 +178,12 @@ function componentInstrument(opt){
 
     const bx = c("div");
     bx.setAttribute("class", "bx");
-    
+    // bx.style.width = widthtotal+"px";
+    console.log(widthtotal);
+
+    // console.log(widthBraco(init.casas, init));
+
+    console.log("-----");    
         const bxHeader = c("div");
         bxHeader.setAttribute("class", "bxHeader");
 
@@ -188,6 +199,7 @@ function componentInstrument(opt){
             bxHeader.appendChild(gradeCount);
 
             state.newState.valWidthBraco.push(casa2);
+            
             casa2 = casa2 * 1.05;
         }
 
@@ -196,16 +208,23 @@ function componentInstrument(opt){
 
     const bx_inner_right = c("div");
     bx_inner_right.setAttribute("class","bx_inner_right");
-    // bx_inner_right.innerHTML = "ffwfwfwf";
+    // bx_inner_right.innerHTML = "ffw";
 
-    
+    const bx_inner = c("div");
+    bx_inner.setAttribute("class","bx_inner");
+
+    bx_inner.appendChild(container_bx);
+    bx_inner.appendChild(bx_inner_right);
+
+    bx.appendChild(bx_inner);
 
 
     container_bx.appendChild(bxHeader);
 
     const bxB = c("div");
     bxB.setAttribute("class", "bxB");
-    bxB.style.width = ca+"px";
+    
+   
 
         // Começo das grades  
 
@@ -217,6 +236,8 @@ function componentInstrument(opt){
 
             const gradeMark = c("div");
             gradeMark.setAttribute("class", "gradeMark");
+
+        
         
         bxBbrac.appendChild(gradeMark);
 
@@ -231,6 +252,8 @@ function componentInstrument(opt){
                 // Header e Braço
                 bxHeader.style.width = ca+"px";
                 bxBbrac.style.width = ca+"px";
+
+
 
                 if (init.casas <= 12) {
                     // bx.style.width = ca+"px";
@@ -324,6 +347,8 @@ function componentInstrument(opt){
 
             const dadosCasa = defined_afinacao(init);
 
+            
+
             for(let gc = 0; gc < init.cordas; gc++){
 
                 const num_cordas = c("div");
@@ -332,6 +357,7 @@ function componentInstrument(opt){
 
                     for (let gn = 0; gn < init.casas; gn++) {
 
+                      
                         const gradeNotasCasa = c("div");
                         gradeNotasCasa.setAttribute("class", "gradeNotasCasa");
                         gradeNotasCasa.setAttribute("data-casa", (gc+1) + "-" + (gn+1) + "-" + dadosCasa[gc][gn]);
@@ -351,8 +377,7 @@ function componentInstrument(opt){
 
             
     container_bx.appendChild(bxB);
-    bx.appendChild(container_bx);
-    // bx.appendChild(bx_inner_right);
+   
 
 
     // CONTROLES ====================================================================
