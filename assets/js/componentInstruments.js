@@ -56,7 +56,7 @@ function componentInstrument(opt){
 
                     init.name = "Violão";
                     init.width = 1100;
-
+                    init.corBraco = "linear-gradient(#44362f, #59453b, #44362f)";
                     break;
 
                 case "Violão12":
@@ -178,16 +178,9 @@ function componentInstrument(opt){
 
     const bx = c("div");
     bx.setAttribute("class", "bx");
-    // bx.style.width = widthtotal+"px";
-    console.log(widthtotal);
-
-    // console.log(widthBraco(init.casas, init));
-
-    console.log("-----");    
+   
         const bxHeader = c("div");
         bxHeader.setAttribute("class", "bxHeader");
-
-            
 
         let countCasas = init.casas;
         for (let indexCount = init.casas; indexCount >= 1; indexCount--) {
@@ -208,7 +201,29 @@ function componentInstrument(opt){
 
     const bx_inner_right = c("div");
     bx_inner_right.setAttribute("class","bx_inner_right");
-    // bx_inner_right.innerHTML = "ffw";
+
+        const bx_inner_right_space = c("div");
+        bx_inner_right_space.setAttribute("class","bx_inner_right_space");
+    bx_inner_right.appendChild(bx_inner_right_space);
+
+        const bx_inner_right_center = c("div");
+        bx_inner_right_center.setAttribute("class","bx_inner_right_center");
+    bx_inner_right.appendChild(bx_inner_right_center);
+
+            for (let indexNameCasa = 0; indexNameCasa < init.cordas; indexNameCasa++) {
+                
+                const bx_inner_right_center_name = c("div");
+                bx_inner_right_center_name.setAttribute("class", "bx_inner_right_center_name");
+                bx_inner_right_center_name.innerHTML = init.afinacao[indexNameCasa];
+
+                bx_inner_right_center.appendChild(bx_inner_right_center_name);
+                
+            }
+
+
+    const bx_inner_right_space2 = c("div");
+        bx_inner_right_space2.setAttribute("class","bx_inner_right_space");
+    bx_inner_right.appendChild(bx_inner_right_space2);
 
     const bx_inner = c("div");
     bx_inner.setAttribute("class","bx_inner");
