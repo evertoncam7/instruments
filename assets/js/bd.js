@@ -9,7 +9,8 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:699
     },
     {
         id:1, 
@@ -20,7 +21,8 @@ const bd = [
         casa:2,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
     },
     {
         id:2, 
@@ -31,7 +33,8 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
     },
     {
         id:3, 
@@ -42,7 +45,8 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
     },
     {
         id:4, 
@@ -53,7 +57,8 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
     },
     {
         id:5, 
@@ -64,7 +69,8 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:528
     },
     {
         id:5, 
@@ -75,7 +81,9 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
+
     },
     {
         id:5, 
@@ -86,7 +94,8 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
     },
     {
         id:5, 
@@ -97,7 +106,8 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
     },
     {
         id:5, 
@@ -108,7 +118,20 @@ const bd = [
         casa:1,
         cordasNull:[],
         dedilhado:[],
-        description:""
+        description:"",
+        pos:0
+    },
+    {
+        id:5, 
+        name:"Cm",
+        som:"",
+        group:"Cm",
+        notas:['1-18-G', '2-18-C', '3-18-F', '4-18-A#', '5-18-D', '6-18-G', '5-17-D#', '4-16-C', '3-16-G'],
+        casa:1,
+        cordasNull:[],
+        dedilhado:[],
+        description:"",
+        pos:0
     }
 ];
 

@@ -29,7 +29,7 @@ function fn_acordes(comp){
 
         function fn1(e){
 
-            state.search[0] = e.target.options[e.target.selectedIndex].value;
+            state.search[0] = e.target.options[e.target.selectedIndex].text;
 
             const s = state.search[0] + state.search[1] + state.search[2];
             state.nota = s;
@@ -48,6 +48,8 @@ function fn_acordes(comp){
                 state.noteOld = [];
 
             }
+
+            scrollNotas(comp ,get(s)[0]);
             
             for (let index = 0; index < (get(s)[0] ? get(s)[0].notas.length : 0); index++) {
 
@@ -92,7 +94,7 @@ function fn_acordes(comp){
 
             function fn2(e){
 
-                state.search[1] = e.target.options[e.target.selectedIndex].value;
+                state.search[1] = e.target.options[e.target.selectedIndex].text;
 
                 const s = state.search[0] + state.search[1] + state.search[2];
                 state.nota = s;
@@ -111,6 +113,7 @@ function fn_acordes(comp){
 
                 }
 
+                scrollNotas(comp ,get(s)[0]);
                 
                 for (let index = 0; index < (get(s)[0] ? get(s)[0].notas.length : 0); index++) {
 
@@ -141,7 +144,7 @@ function fn_acordes(comp){
 
         function fn3(e){
 
-            state.search[2] = e.target.options[e.target.selectedIndex].value;
+            state.search[2] = e.target.options[e.target.selectedIndex].text;
 
             const s = state.search[0] + state.search[1] + state.search[2];
             state.nota = s;
@@ -160,6 +163,7 @@ function fn_acordes(comp){
 
             }
 
+            scrollNotas(comp ,get(s)[0]);
             
             for (let index = 0; index < (get(s)[0] ? get(s)[0].notas.length : 0); index++) {
 
@@ -179,7 +183,7 @@ function fn_acordes(comp){
 
         const obj3 = [
             {id:12, value:"", text:""},
-            {id:12, value:"M", text:"M"},
+            {id:12, value:"", text:"M"},
             {id:12, value:"m", text:"m"},
         ];
 
@@ -197,29 +201,3 @@ function fn_acordes(comp){
 
 }
 
-
-/* <div class='bx_acorde'>
-            <div class='bx_acorde_c'>
-                <p>Notas</p>
-                <select>
-                    <option value=''></option>
-                    <option value='C'>C</option>
-                    <option value='D'>D</option>
-                    <option value='E'>E</option>
-                </select>
-
-                <p>Sus/bemol</p>
-                <select>
-                    <option value='n'></option>
-                    <option value='#'>#</option>
-                    <option value='b'>b</option>
-                </select>
-
-                <p>Tipo</p>
-                <select>
-                    <option value=''></option>
-                    <option value='maior'>Maior</option>
-                    <option value='menor'>Menor</option>
-                </select>
-            </div>
-        </div> */

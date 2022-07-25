@@ -21,6 +21,7 @@
     </footer>
     
 
+    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bd.js"></script>
     <script src="assets/js/get.js"></script>
     <script src="assets/js/component_pages.js"></script>
@@ -33,20 +34,99 @@
 
 <script>
 
+    const bxs = document.querySelectorAll(".bx");
+
+    for(let iii = 1; iii <= bxs.length; iii++){
+        document.getElementById("bx-"+iii).scrollLeft = 699;
+    }
+
 
 
     const notass = document.querySelectorAll(".gradeNotasCasa");
 
-    const formatNotas = [];
+    const formatNotas = {
+        casasActive:[],
+        casasInactive:[],
+        stateCasa:""
+    };
+
+    let countClick = 0;
 
     for (let indexx = 0; indexx < notass.length; indexx++) {
 
         notass[indexx].addEventListener("click", function(e){
-            
-            formatNotas.push(notass[indexx].dataset.casa);
-            notass[indexx].style.background = "red";
 
-            console.log("=============================================");
+
+            function activeCs(countClicks){
+
+                if(countClicks == 0){
+
+                    if(formatNotas.casasInactive.includes(notass[indexx].dataset.casa)){
+
+                        const positionCasa = formatNotas.casasInactive.indexOf(notass[indexx].dataset.casa);
+                        formatNotas.casasInactive.splice(positionCasa, 1);
+                        console.log(positionCasa);
+
+                    }
+
+                    formatNotas.casasActive.push(notass[indexx].dataset.casa);
+                    formatNotas.stateCasa = notass[indexx].dataset.casa;
+                    notass[indexx].style.background = "green";
+                    
+                    countClick = 1;
+                
+                }else if(countClicks == 1){
+
+
+                    if(formatNotas.casasActive.includes(notass[indexx].dataset.casa)){
+
+                        const positionCasa = formatNotas.casasActive.indexOf(notass[indexx].dataset.casa);
+                        formatNotas.casasActive.splice(positionCasa, 1);
+                        console.log(positionCasa);
+
+                    }
+
+                    formatNotas.casasInactive.push(notass[indexx].dataset.casa);
+                    formatNotas.stateCasa = notass[indexx].dataset.casa;
+                    notass[indexx].style.background = "red";
+                
+                    countClick = 2;
+
+                }else{
+
+                    if(formatNotas.casasActive.includes(notass[indexx].dataset.casa)){
+
+                        const positionCasa = formatNotas.casasActive.indexOf(notass[indexx].dataset.casa);
+                        formatNotas.casasActive.splice(positionCasa, 1);
+
+                    }
+
+                    if(formatNotas.casasInactive.includes(notass[indexx].dataset.casa)){
+
+                        const positionCasa = formatNotas.casasInactive.indexOf(notass[indexx].dataset.casa);
+                        formatNotas.casasInactive.splice(positionCasa, 1);
+
+                    }
+
+                    notass[indexx].style.background = "none";
+
+                    countClick = 0;
+
+                }
+
+            }
+
+            if (formatNotas.stateCasa == e.target.dataset.casa){
+
+                activeCs(countClick);
+                
+            }else{
+
+                countClick = 0;
+                activeCs(countClick);
+                
+            }
+            
             console.log(formatNotas);
 
         });

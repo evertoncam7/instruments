@@ -15,7 +15,7 @@ const optionInst = {
     }
 }
 
-
+let idbx = 1;
 
 function componentInstrument(opt){
 
@@ -152,6 +152,21 @@ function componentInstrument(opt){
         const bxHeader1 = c("div");
         bxHeader1.setAttribute("class", "bxHeader1");
 
+            const bxHeader1Container = c("div");
+            bxHeader1Container.setAttribute("class", "bxHeader1Container");
+
+                for (let headerCountButtons = 0; headerCountButtons <= 5; headerCountButtons++) {
+                    
+                    const bxHeader1ContainerButtons = c("div");
+                    bxHeader1ContainerButtons.setAttribute("class", "bxHeader1ContainerButtons");
+
+                    bxHeader1Container.appendChild(bxHeader1ContainerButtons);
+
+                    
+                }
+
+            bxHeader1.appendChild(bxHeader1Container);
+
         const bxHeader2 = c("div");
         bxHeader2.setAttribute("class", "bxHeader2");
 
@@ -178,10 +193,25 @@ function componentInstrument(opt){
 
     const bx = c("div");
     bx.setAttribute("class", "bx");
+    bx.setAttribute("id", "bx-"+idbx)
+
+    const bx_inner = c("div");
+    bx_inner.setAttribute("class","bx_inner");
+
+    const container_bx = c("div");
+    container_bx.setAttribute("class","container_bx");
+
+  
+    bx.addEventListener("scroll", function(e){
+
+        console.log(e.target.scrollLeft);
+
+    });
    
         const bxHeader = c("div");
         bxHeader.setAttribute("class", "bxHeader");
 
+       
         let countCasas = init.casas;
         for (let indexCount = init.casas; indexCount >= 1; indexCount--) {
 
@@ -196,8 +226,7 @@ function componentInstrument(opt){
             casa2 = casa2 * 1.05;
         }
 
-    const container_bx = c("div");
-    container_bx.setAttribute("class","container_bx");
+    
 
     const bx_inner_right = c("div");
     bx_inner_right.setAttribute("class","bx_inner_right");
@@ -225,8 +254,7 @@ function componentInstrument(opt){
         bx_inner_right_space2.setAttribute("class","bx_inner_right_space");
     bx_inner_right.appendChild(bx_inner_right_space2);
 
-    const bx_inner = c("div");
-    bx_inner.setAttribute("class","bx_inner");
+    
 
     bx_inner.appendChild(container_bx);
     bx_inner.appendChild(bx_inner_right);
@@ -235,6 +263,8 @@ function componentInstrument(opt){
 
 
     container_bx.appendChild(bxHeader);
+
+    testeNode(bxHeader);
 
     const bxB = c("div");
     bxB.setAttribute("class", "bxB");
@@ -414,6 +444,7 @@ function componentInstrument(opt){
                 btn_bx_left.innerHTML = "ACORDES";
                 btn_bx_left.addEventListener("click", function(){
                     bx_controll2Center.appendChild(comp.create(fn_acordes(gradeNotas)));
+                    activeButtom(btn_bx_left);
                 });
 
                 bxButton.appendChild(btn_bx_left);
@@ -423,7 +454,7 @@ function componentInstrument(opt){
                 btn_bx_left2.innerHTML = "ESCALAS";
                 btn_bx_left2.addEventListener("click", function(){
                     bx_controll2Center.appendChild(comp.create("TESTE ESCALAS"));
-                    console.log(comp.pages);
+                    activeButtom(btn_bx_left2);
                 });
 
                 bxButton.appendChild(btn_bx_left2);
@@ -434,7 +465,7 @@ function componentInstrument(opt){
                 btn_bx_left3.addEventListener("click", function(){
                     
                     bx_controll2Center.appendChild(comp.create("TESTE ARPEJOS"));
-                    console.log(comp.pages);
+                    activeButtom(btn_bx_left3);
                 });
 
                 bxButton.appendChild(btn_bx_left3);
@@ -444,6 +475,7 @@ function componentInstrument(opt){
                 btn_bx_left4.innerHTML = "EXERCÍCIOS";
                 btn_bx_left4.addEventListener("click", function(){
                     bx_controll2Center.appendChild(comp.create("TESTE EXERCÍCIOS"));
+                    activeButtom(btn_bx_left4);
                 });
 
                 bxButton.appendChild(btn_bx_left4);
@@ -480,6 +512,7 @@ function componentInstrument(opt){
                 btn_bx_right.innerHTML = "AFINAÇÃO";
                 btn_bx_right.addEventListener("click", function(){
                     bx_controll2Center.appendChild(comp.create("TESTE AFINAÇÃO"));
+                    activeButtom(btn_bx_right);
                 });
 
                 bxButtonRight.appendChild(btn_bx_right);
@@ -491,6 +524,7 @@ function componentInstrument(opt){
 
                     // Aqui está sendo criado uma página e exibindo a na tela.
                     bx_controll2Center.appendChild(comp.create("TESTE MÚSICAS"));
+                    activeButtom(btn_bx_right2);
                 });
 
                 bxButtonRight.appendChild(btn_bx_right2);
@@ -500,6 +534,7 @@ function componentInstrument(opt){
                 btn_bx_right3.innerHTML = "ACESSÓRIOS";
                 btn_bx_right3.addEventListener("click", function(){
                     bx_controll2Center.appendChild(comp.create("TESTE ACESSÓRIOS"));
+                    activeButtom(btn_bx_right3);
                 });
 
                 bxButtonRight.appendChild(btn_bx_right3);
@@ -509,6 +544,7 @@ function componentInstrument(opt){
                 btn_bx_right4.innerHTML = "TÉCNICAS";
                 btn_bx_right4.addEventListener("click", function(){
                     bx_controll2Center.appendChild(comp.create("TESTE TÉCNICAS"));
+                    activeButtom(btn_bx_right4);
                 });
 
                 bxButtonRight.appendChild(btn_bx_right4);
@@ -517,13 +553,13 @@ function componentInstrument(opt){
 
         bxControl.appendChild(bx_right);
 
-
     containerBx.appendChild(bx);
+
     containerBx.appendChild(bxControl);
-
+ 
+    idbx++;
     
     
-
     // FIM CONTROLES =================================================================
 
 
@@ -585,6 +621,8 @@ container.appendChild(ct3.create());
 container.appendChild(ct4.create());
 container.appendChild(ct5.create());
 container.appendChild(ct6.create());
+
+
 
 let num = [];
 for (let countN = 0; countN <= 99; countN++) {

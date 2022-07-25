@@ -45,7 +45,24 @@ body{
     width: 100%;
     height: 50%;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0px 10px;
 }
+
+.bxHeader1Container{
+    display: flex;
+}
+
+.bxHeader1ContainerButtons{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: #a3a3a3;
+    margin: 0px 5px;
+}
+
 
 .bxHeader2{
     width: 100%;
@@ -259,6 +276,10 @@ body{
     box-shadow:  5px 5px 10px #0d0d10,
              -5px -5px 10px #232328;
     cursor: pointer;
+}
+
+.activeButtom{
+    border: 1px solid #fff;
 }
 
 .bx_controll2{

@@ -6,6 +6,8 @@ function get(val){
         return v.name == val;
     });
 
+    console.log(result);
+
     return result
 
 };
@@ -52,6 +54,35 @@ function widthBraco(numCasa, init){
     }
 
     return s;
+}
+
+function testeNode(c){
+    return c.parentNode;
+}
+
+function activeButtom(btn){
+
+    const b = document.querySelectorAll(".btn_bx_left");
+
+    for (let index = 0; index < b.length; index++) {
+        
+        b[index].classList.remove("activeButtom");
+        
+    }
+
+    btn.classList.add("activeButtom");
+
+}
+
+function scrollNotas(comp, obj){
+
+   
+    const bx = comp.parentNode.parentNode.parentNode.parentNode.parentNode;
+    console.log(parseInt(obj.pos));
+    document.getElementById(bx.id).scrollLeft = parseInt(obj.pos);
+    
+
+
 }
 
 
