@@ -245,7 +245,7 @@ body{
 
 .bxControl{
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
     background: #18181C;
     border-top: 1px solid #777;
     display: flex;
@@ -326,11 +326,17 @@ footer{
 }
 
 .container_select{
-    width: 120px;
+
+    width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 10px;
+   
+}
+
+.container_select div{
+    width: 100%;
+    height: 170px;
 }
 
 .container_select_bx{
@@ -338,7 +344,7 @@ footer{
 }
 
 .container_select_bx_select{
-    width: 100%;
+    width: calc(100% - 10px);
     margin-bottom: 10px;
 }
 
@@ -374,6 +380,21 @@ footer{
     font-weight: bold;
 }
 
+.bx_q_acordes{
+    display: flex;
+}
+
+.container_select div .bollQ{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: yellowgreen;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media(max-width:900px){
 
     .bx{
@@ -407,7 +428,7 @@ footer{
     }
 
     .bxControl{
-        height: 300px;
+        /* height: 240px; */
         flex-wrap: wrap;
     }
 
@@ -416,7 +437,20 @@ footer{
     }
 
     .bx_controll2{
+
+        width: 100%;
         height: calc(100% - 60px);
+    }
+
+    .container_select{
+
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+    .container_select div{
+        width: 50%;
     }
 
     .bx_pages_pages{

@@ -5,10 +5,8 @@ function get(val){
     let result = bd.filter(function(v){
         return v.name == val;
     });
-
-    console.log(result);
-
-    return result
+    
+    return result;
 
 };
 

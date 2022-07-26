@@ -10,7 +10,7 @@ const bd = [
         cordasNull:[],
         dedilhado:[],
         description:"",
-        pos:699
+        pos:701
     },
     {
         id:1, 
@@ -22,7 +22,7 @@ const bd = [
         cordasNull:[],
         dedilhado:[],
         description:"",
-        pos:0
+        pos:701
     },
     {
         id:2, 
