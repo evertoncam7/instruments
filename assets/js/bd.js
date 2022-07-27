@@ -28,13 +28,13 @@ const bd = [
         id:2, 
         name:"D",
         som:"",
-        group:"E",
-        notas:['2-19-B', '3-19-E', '4-20-G#'],
+        group:"D",
+        notas:['6-16-A', '5-16-E', '4-16-C', '3-16-G', '2-16-D', '1-16-A', '3-14-A', '4-14-D', '5-14-F#'],
         casa:1,
         cordasNull:[],
         dedilhado:[],
         description:"",
-        pos:0
+        pos:465
     },
     {
         id:3, 

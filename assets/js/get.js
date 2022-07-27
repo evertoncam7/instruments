@@ -37,7 +37,6 @@ function select(cl){
 }
 
 function notaTitulo(comp){
-    console.log();
     return comp.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector(".bxTop").querySelector(".bxHeader2").querySelectorAll(".bxHeader2_")[1].innerHTML = state.nota;
 }
 
@@ -74,12 +73,11 @@ function activeButtom(btn){
 
 function scrollNotas(comp, obj){
 
-   
     const bx = comp.parentNode.parentNode.parentNode.parentNode.parentNode;
-    console.log(parseInt(obj.pos));
-    document.getElementById(bx.id).scrollLeft = parseInt(obj.pos);
+    if (document.getElementById(bx.id) && obj) {
+        document.getElementById(bx.id).scrollLeft = parseInt(obj.pos);
+    }
     
-
 
 }
 

@@ -590,37 +590,37 @@ const opt = {
 }
 const ct = componentInstrument(opt);
 
-const opt2 = {
-    instrument:"Violão12"
-}
-const ct2 = componentInstrument(opt2);
+// const opt2 = {
+//     instrument:"Violão12"
+// }
+// const ct2 = componentInstrument(opt2);
 
-const opt3 = {
-    instrument:"Viola"
-}
-const ct3 = componentInstrument(opt3);
+// const opt3 = {
+//     instrument:"Viola"
+// }
+// const ct3 = componentInstrument(opt3);
 
-const opt4 = {
-    instrument:"Ukulele"
-}
-const ct4 = componentInstrument(opt4);
+// const opt4 = {
+//     instrument:"Ukulele"
+// }
+// const ct4 = componentInstrument(opt4);
 
-const opt5 = {
-    instrument:"Baixo"
-}
-const ct5 = componentInstrument(opt5);
+// const opt5 = {
+//     instrument:"Baixo"
+// }
+// const ct5 = componentInstrument(opt5);
 
-const opt6 = {
-    instrument:"Guitarra"
-}
-const ct6 = componentInstrument(opt6);
+// const opt6 = {
+//     instrument:"Guitarra"
+// }
+// const ct6 = componentInstrument(opt6);
 
 container.appendChild(ct.create());
-container.appendChild(ct2.create());
-container.appendChild(ct3.create());
-container.appendChild(ct4.create());
-container.appendChild(ct5.create());
-container.appendChild(ct6.create());
+// container.appendChild(ct2.create());
+// container.appendChild(ct3.create());
+// container.appendChild(ct4.create());
+// container.appendChild(ct5.create());
+// container.appendChild(ct6.create());
 
 
 

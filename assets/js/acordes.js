@@ -3,7 +3,8 @@ let state = {
     noteOld:[],
     search:[],
     nota:"",
-    data:[]
+    data:[],
+    buttonNotas:""
 };
 
 function fn_acordes(comp){
@@ -48,36 +49,59 @@ function fn_acordes(comp){
             
                 const bollQ = document.createElement("div");
                 bollQ.setAttribute("class", "bollQ");
+
                 if(indexBxQacordes == 0){
                     bollQ.style.border = "3px solid #fff";
+                    state.buttonNotas = bollQ;
                 }
+
                 bollQ.innerHTML = (indexBxQacordes+1);
+                bollQ.addEventListener("click", function(e){
+                    
+                    fAcorde(indexBxQacordes);
+                    
+                    state.buttonNotas.style.border = "none";
+                    state.buttonNotas = this;
+
+                    this.style.border = "3px solid #fff";
+
+                });
     
-                bx_q_acordes.appendChild(bollQ);
+                bx_q_acordes.appendChild(bollQ); 
                 
             }
-           
-            if(state.noteOld.length){
 
-                for (let cleanState = 0; cleanState < state.noteOld.length; cleanState++) {
-                    comp.querySelectorAll(".num_cordas")[state.noteOld[cleanState][0]-1].querySelectorAll(".gradeNotasCasa")[state.noteOld[cleanState][1]-1].innerHTML = "";    
+            function fAcorde(i = 0){
+
+                if(state.noteOld.length){
+
+                    for (let cleanState = 0; cleanState < state.noteOld.length; cleanState++) {
+                        comp.querySelectorAll(".num_cordas")[state.noteOld[cleanState][0]-1].querySelectorAll(".gradeNotasCasa")[state.noteOld[cleanState][1]-1].innerHTML = "";    
+                    }
+    
+                    state.noteOld = [];
+    
+                }
+    
+                scrollNotas(comp ,get(s)[i]);
+                addTb(get(s)[i]);
+                
+                for (let index = 0; index < (get(s)[i] ? get(s)[i].notas.length : 0); index++) {
+    
+                    const arr = get(s)[i].notas[index].split("-");
+                    state.noteOld.push([parseInt(arr[0]), parseInt(arr[1])]);
+                    
+                    const aa = comp.querySelectorAll(".num_cordas")[(parseInt(arr[0])-1)];
+                    aa.querySelectorAll(".gradeNotasCasa")[(parseInt(arr[1])-1)].innerHTML = "<div class='boll_2'></div>";
+                    
                 }
 
-                state.noteOld = [];
-
             }
 
-            scrollNotas(comp ,get(s)[0]);
+            fAcorde();
+           
             
-            for (let index = 0; index < (get(s)[0] ? get(s)[0].notas.length : 0); index++) {
-
-                const arr = get(s)[0].notas[index].split("-");
-                state.noteOld.push([parseInt(arr[0]), parseInt(arr[1])]);
-                
-                const aa = comp.querySelectorAll(".num_cordas")[(parseInt(arr[0])-1)];
-                aa.querySelectorAll(".gradeNotasCasa")[(parseInt(arr[1])-1)].innerHTML = "<div class='boll_2'></div>";
-                
-            }
+            
 
             // console.log(state.data);
 
@@ -228,15 +252,45 @@ function fn_acordes(comp){
 
     const bx_tablatura = document.createElement("div");
     bx_tablatura.setAttribute("class", "bx_tablatura");
-    bx_tablatura.innerHTML = "Tablaturas...";
+    bx_tablatura.setAttribute("id", "bx_tablatura_id");
+    // bx_tablatura.innerHTML = "Tablaturas...";
 
     container_select.appendChild(bx_tablatura);
+
+ 
+
+    const tablat = cpTablatura(bx_tablatura);
+
+    const adc = tablat.addCompasso(1);
+    
+    
+    // adc.add(2, 3, 2);
+
+    function addTb(obj){
+        
+        tablat.removeAll();
+
+        for (let index = 0; index < obj.notas.length; index++) {
+            
+            const sp = obj.notas[index].split("-");
+            const cor = sp[0];
+            const cas = (20 - sp[1]) + 1;
+            adc.add(cor, cas, 2);
+
+        }
+
+    }
+    
+
+
+
+    
 
     const bx_partitura = document.createElement("div");
     bx_partitura.setAttribute("class", "bx_partitura");
     bx_partitura.innerHTML = "Partitura...";
 
-    container_select.appendChild(bx_partitura);
+    // container_select.appendChild(bx_partitura);
 
 
 
