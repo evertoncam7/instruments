@@ -7,7 +7,7 @@ let state = {
     buttonNotas:""
 };
 
-function fn_acordes(comp){
+function fn_acordes(comp, q_cordas, afinacao){
 
     state.search[0] = '';
     state.search[1] = '';
@@ -88,8 +88,25 @@ function fn_acordes(comp){
                 }
     
                 scrollNotas(comp ,get(s)[i]);
-             
-                
+
+                const bdt = [];
+                if (get(s)[i]) {
+                    
+                    get(s)[i].notas.forEach(function (v, i){
+                        
+                        const split = v.split("-");
+                        const cor = parseInt(split[0]);
+                        const cas = (20 - parseInt(split[1]) + 1);
+                        const tex = cas;
+
+                        bdt.push({corda:(cor - 1), casa:cas, text:tex, pos:2});
+
+                    });
+
+                    tabb.add(bdt);
+                }
+               
+
                 for (let index = 0; index < (get(s)[i] ? get(s)[i].notas.length : 0); index++) {
     
                     const arr = get(s)[i].notas[index].split("-");
@@ -213,6 +230,7 @@ function fn_acordes(comp){
 
             scrollNotas(comp ,get(s)[0]);
             
+            
             for (let index = 0; index < (get(s)[0] ? get(s)[0].notas.length : 0); index++) {
 
                 const arr = get(s)[0].notas[index].split("-");
@@ -257,14 +275,28 @@ function fn_acordes(comp){
     const bx_tablatura = document.createElement("div");
     bx_tablatura.setAttribute("class", "bx_tablatura");
     bx_tablatura.setAttribute("id", "bx_tablatura_id");
-    // bx_tablatura.innerHTML = "Tablaturas...";
+    bx_tablatura.innerHTML = "Tablatura";
 
+    const reversefinacao = [];
 
-    const config = {
-        quant_cordas:6
+    for (let rev = afinacao.length - 1; rev >= 0 ; rev--) {
+        
+        reversefinacao.push(afinacao[rev]);
+        
     }
 
-    // bx_tablatura.appendChild(tablatura(config));
+    const config = {
+        quant_cordas:q_cordas,
+        afinacao:reversefinacao
+    }
+
+    console.log(afinacao)
+
+    const tabb = tablatura(config);
+
+ 
+
+    bx_tablatura.appendChild(tabb.tb);
      
 
     container_select.appendChild(bx_tablatura);

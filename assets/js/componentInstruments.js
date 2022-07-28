@@ -443,7 +443,7 @@ function componentInstrument(opt){
                 btn_bx_left.setAttribute("class", "btn_bx_left");
                 btn_bx_left.innerHTML = "ACORDES";
                 btn_bx_left.addEventListener("click", function(){
-                    bx_controll2Center.appendChild(comp.create(fn_acordes(gradeNotas)));
+                    bx_controll2Center.appendChild(comp.create(fn_acordes(gradeNotas, init.cordas, init.afinacao)));
                     activeButtom(btn_bx_left);
                 });
 

@@ -335,10 +335,7 @@ footer{
    
 }
 
-.container_select div{
-    
-    height: 170px;
-}
+
 
 .container_select .container_select_inner{
     width: 100%;
@@ -348,8 +345,9 @@ footer{
     width: 100%;
 }
 
-.container_select .bx_tablatura{
+.bx_tablatura{
     width: 100%;
+    
 }
 
 .container_select_bx{
@@ -410,13 +408,7 @@ footer{
     justify-content: center;
 }
 
-.container_select .bx_tablatura{
 
-    width:100%;
-    height: 100%;
-    
-   
-}
 
 @media(max-width:900px){
 
@@ -491,8 +483,13 @@ footer{
         width: 50%;
     }
 
-    .container_select .bx_tablatura{
+    .bx_tablatura{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
     }
 
     .container_select .bx_pages_pages{
