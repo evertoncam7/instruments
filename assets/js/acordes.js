@@ -17,9 +17,16 @@ function fn_acordes(comp){
     const container_select = document.createElement("div");
     container_select.setAttribute("class", "container_select");
 
+        const container_select_inner = document.createElement("div");
+        container_select_inner.setAttribute("class", "container_select_inner");
+        container_select.appendChild(container_select_inner);
+
         const container_select_bx = document.createElement("div");
         container_select_bx.setAttribute("class", "container_select_bx");
-    container_select.appendChild(container_select_bx);
+
+
+
+        container_select_inner.appendChild(container_select_bx);
 
             const text = document.createElement("p");
             text.innerHTML = "Notas";
@@ -36,9 +43,6 @@ function fn_acordes(comp){
 
             notaTitulo(comp);
 
-            console.log(state.nota);
-            console.log("----");
-
             state.data = [];
 
             state.data.push(...get(s));
@@ -51,7 +55,7 @@ function fn_acordes(comp){
                 bollQ.setAttribute("class", "bollQ");
 
                 if(indexBxQacordes == 0){
-                    bollQ.style.border = "3px solid #fff";
+                    bollQ.style.border = "1px solid #fff";
                     state.buttonNotas = bollQ;
                 }
 
@@ -63,7 +67,7 @@ function fn_acordes(comp){
                     state.buttonNotas.style.border = "none";
                     state.buttonNotas = this;
 
-                    this.style.border = "3px solid #fff";
+                    this.style.border = "1px solid #fff";
 
                 });
     
@@ -84,7 +88,7 @@ function fn_acordes(comp){
                 }
     
                 scrollNotas(comp ,get(s)[i]);
-                addTb(get(s)[i]);
+             
                 
                 for (let index = 0; index < (get(s)[i] ? get(s)[i].notas.length : 0); index++) {
     
@@ -255,35 +259,19 @@ function fn_acordes(comp){
     bx_tablatura.setAttribute("id", "bx_tablatura_id");
     // bx_tablatura.innerHTML = "Tablaturas...";
 
+
+    const config = {
+        quant_cordas:6
+    }
+
+    // bx_tablatura.appendChild(tablatura(config));
+     
+
     container_select.appendChild(bx_tablatura);
 
  
 
-    const tablat = cpTablatura(bx_tablatura);
-
-    const adc = tablat.addCompasso(1);
     
-    
-    // adc.add(2, 3, 2);
-
-    function addTb(obj){
-        
-        tablat.removeAll();
-
-        for (let index = 0; index < obj.notas.length; index++) {
-            
-            const sp = obj.notas[index].split("-");
-            const cor = sp[0];
-            const cas = (20 - sp[1]) + 1;
-            adc.add(cor, cas, 2);
-
-        }
-
-    }
-    
-
-
-
     
 
     const bx_partitura = document.createElement("div");

@@ -37,6 +37,18 @@ const bd = [
         pos:465
     },
     {
+        id:2, 
+        name:"D",
+        som:"",
+        group:"D",
+        notas:['1-11-D', '2-12-F#', '6-11-D', '1-14-B', '2-14-E', '3-14-A', '4-14-D', '5-14-F#', '6-14-B'],
+        casa:1,
+        cordasNull:[],
+        dedilhado:[],
+        description:"",
+        pos:326
+    },
+    {
         id:3, 
         name:"E",
         som:"",
