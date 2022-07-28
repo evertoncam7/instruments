@@ -144,7 +144,19 @@ const bd = [
         dedilhado:[],
         description:"",
         pos:0
+    },
+    {
+        id:5, 
+        name:"G",
+        som:"",
+        group:"G",
+        notas:['2-19-B', '1-18-G', '6-18-G'],
+        casa:1,
+        cordasNull:[],
+        dedilhado:[],
+        description:"",
+        pos:705
     }
 ];
 
-'6-17-G#', '4-17-B', '5-16-E', '3-19-E'
+'2-19-B', '1-18-G', '6-18-G'
