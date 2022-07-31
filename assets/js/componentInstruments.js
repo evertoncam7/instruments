@@ -155,7 +155,15 @@ function componentInstrument(opt){
             const bxHeader1Container = c("div");
             bxHeader1Container.setAttribute("class", "bxHeader1Container");
 
-               
+                // for (let headerCountButtons = 0; headerCountButtons <= 5; headerCountButtons++) {
+                    
+                //     const bxHeader1ContainerButtons = c("div");
+                //     bxHeader1ContainerButtons.setAttribute("class", "bxHeader1ContainerButtons");
+
+                //     bxHeader1Container.appendChild(bxHeader1ContainerButtons);
+
+                    
+                // }
 
             bxHeader1.appendChild(bxHeader1Container);
 
@@ -445,7 +453,7 @@ function componentInstrument(opt){
                 btn_bx_left2.setAttribute("class", "btn_bx_left");
                 btn_bx_left2.innerHTML = "ESCALAS";
                 btn_bx_left2.addEventListener("click", function(){
-                    bx_controll2Center.appendChild(comp.create("TESTE ESCALAS"));
+                    bx_controll2Center.appendChild(comp.create(page_escalas(gradeNotas, init.cordas, init.afinacao)));
                     activeButtom(btn_bx_left2);
                 });
 

@@ -74,7 +74,7 @@ function inverteArray(arr){
         ay.push(arr[index]);
     } 
     return ay;
-    
+
 }
 
 
@@ -107,6 +107,54 @@ function filterArrayNotas(arr1){
     });
 
     return arr11;
+
+}
+
+
+function get_escala(escala){
+
+    // console.log(escala);
+
+    const resp = bd_escalas.filter(function(e){
+        return e.tom == escala;
+    });
+
+    return resp;
+
+}
+
+function update_braco(comp, e){
+
+    // console.log(e);
+
+    state.search[0] = e.target.options[e.target.selectedIndex].text;
+
+    const s = state.search[0];
+    state.nota = s;
+
+    if(state.noteOld.length){
+
+        for (let cleanState = 0; cleanState < state.noteOld.length; cleanState++) {
+            comp.querySelectorAll(".num_cordas")[state.noteOld[cleanState][0]-1].querySelectorAll(".gradeNotasCasa")[state.noteOld[cleanState][1]-1].innerHTML = "";    
+        }
+
+        state.noteOld = [];
+
+    }
+
+    notaTitulo(comp);
+
+    for (let index = 0; index < (get_escala(s)[0] ? get_escala(s)[0].notas.length : 0); index++) {
+
+        const arr = get_escala(s)[0].notas[index].split("-");
+        state.noteOld.push([parseInt(arr[0]), parseInt(arr[1])]);
+        
+        const aa = comp.querySelectorAll(".num_cordas")[(parseInt(arr[0])-1)];
+        aa.querySelectorAll(".gradeNotasCasa")[(parseInt(arr[1])-1)].innerHTML = "<div class='boll_2'></div>";
+        
+    }
+
+
 
 }
 

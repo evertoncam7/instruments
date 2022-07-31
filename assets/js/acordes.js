@@ -222,8 +222,6 @@ function fn_acordes(comp, q_cordas, afinacao){
             state.nota = s;
 
             notaTitulo(comp);
-
-            console.log(s);
         
             if(state.noteOld.length){
 
@@ -318,10 +316,6 @@ function fn_acordes(comp, q_cordas, afinacao){
     bx_q_acordes.setAttribute("class", "bx_q_acordes");
     // bx_q_acordes.innerHTML = "Quantidade de acordes...";
 
-    console.log(state.data);
-
-        
-
     container_select.appendChild(bx_q_acordes);
 
     const bx_tablatura = document.createElement("div");
@@ -335,23 +329,14 @@ function fn_acordes(comp, q_cordas, afinacao){
     }
 
     const tabb = tablatura(config);
-
     bx_tablatura.appendChild(tabb.tb);
-     
     container_select.appendChild(bx_tablatura);
-
-
 
     const bx_partitura = document.createElement("div");
     bx_partitura.setAttribute("class", "bx_partitura");
     bx_partitura.innerHTML = "Partitura...";
 
     // container_select.appendChild(bx_partitura);
-
-
-
-
-          
 
 
     return container_select;
