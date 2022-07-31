@@ -66,13 +66,7 @@ function tablatura(config){
                 tb_container_grade_notas_notas.setAttribute("data-corda", countCor);
                 countCor--;
                     
-                
-                    // const tb_container_grade_notas_notas_n = c("div", "tb-container-grade-notas-notas-n");
-                    // tb_container_grade_notas_notas.appendChild(tb_container_grade_notas_notas_n);
-
-                    
-                    
-                    tb_container_grade_notas.appendChild(tb_container_grade_notas_notas);
+                tb_container_grade_notas.appendChild(tb_container_grade_notas_notas);
 
             }
 
@@ -95,8 +89,6 @@ function tablatura(config){
                         // const cord = tb_container_grade_notas.querySelectorAll(".tb-container-grade-notas-notas")[casasActive[indexActive].corda];
                         tb_state.oldNotas.push(cord);
 
-                        console.log( 6 - casasActive[indexActive].corda);
-
                         for (let indexCordaCasa = 0; indexCordaCasa < casasActive[indexActive].casa; indexCordaCasa++) {
                             
                             const casa = c("div", "tb-container-grade-notas-notas-casa");
@@ -106,7 +98,6 @@ function tablatura(config){
                                 cord.appendChild(casa);
                             }
     
-                            console.log("---->"); 
     
                         }
                         

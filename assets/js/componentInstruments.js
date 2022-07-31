@@ -155,15 +155,7 @@ function componentInstrument(opt){
             const bxHeader1Container = c("div");
             bxHeader1Container.setAttribute("class", "bxHeader1Container");
 
-                for (let headerCountButtons = 0; headerCountButtons <= 5; headerCountButtons++) {
-                    
-                    const bxHeader1ContainerButtons = c("div");
-                    bxHeader1ContainerButtons.setAttribute("class", "bxHeader1ContainerButtons");
-
-                    bxHeader1Container.appendChild(bxHeader1ContainerButtons);
-
-                    
-                }
+               
 
             bxHeader1.appendChild(bxHeader1Container);
 

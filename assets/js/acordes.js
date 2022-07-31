@@ -24,9 +24,13 @@ function fn_acordes(comp, q_cordas, afinacao){
         const container_select_bx = document.createElement("div");
         container_select_bx.setAttribute("class", "container_select_bx");
 
+        const container_select_bx_2 = document.createElement("div");
+        container_select_bx_2.setAttribute("class", "container_select_bx");
+
 
 
         container_select_inner.appendChild(container_select_bx);
+        container_select_inner.appendChild(container_select_bx_2);
 
             const text = document.createElement("p");
             text.innerHTML = "Notas";
@@ -90,6 +94,7 @@ function fn_acordes(comp, q_cordas, afinacao){
                 scrollNotas(comp ,get(s)[i]);
 
                 const bdt = [];
+             
                 if (get(s)[i]) {
                     
                     get(s)[i].notas.forEach(function (v, i){
@@ -98,12 +103,14 @@ function fn_acordes(comp, q_cordas, afinacao){
                         const cor = parseInt(split[0]);
                         const cas = (20 - parseInt(split[1]) + 1);
                         const tex = cas;
-
-                        bdt.push({corda:(cor - 1), casa:cas, text:tex, pos:2});
+                      
+                        bdt.push({corda:(cor - 1), casa:cas, text:tex, pos:2, index:i});
 
                     });
 
-                    tabb.add(bdt);
+                    
+                    tabb.add(filterArrayNotas(bdt));
+
                 }
                
 
@@ -251,6 +258,14 @@ function fn_acordes(comp, q_cordas, afinacao){
             {id:12, value:"", text:""},
             {id:12, value:"", text:"M"},
             {id:12, value:"m", text:"m"},
+            {id:12, value:"aug", text:"aug"},
+            {id:12, value:"dim", text:"dim"},
+            {id:12, value:"sus4", text:"sus4"},
+            {id:12, value:"6", text:"6"},
+            {id:12, value:"m6", text:"m6"},
+            {id:12, value:"7", text:"7"},
+            {id:12, value:"7M", text:"7M"},
+            {id:12, value:"m7", text:"m7"},
         ];
 
         const sel3 = select("container_select_bx_select").option(obj3);
@@ -260,6 +275,43 @@ function fn_acordes(comp, q_cordas, afinacao){
 
     container_select_bx.appendChild(sel3);
 
+    // SELECTS DO LADO 2 
+
+    const textLado2_1 = document.createElement("p");
+    textLado2_1.innerHTML = "Add";
+    container_select_bx_2.appendChild(textLado2_1);
+    
+    const objLadoDois1 = [
+        {id:12, value:"", text:""},
+        {id:12, value:"9", text:"9"},
+        {id:12, value:"11", text:"11"},
+        {id:12, value:"13", text:"13"},
+    ];
+
+    const selLadoDois1 = select("container_select_bx_select").option(objLadoDois1);
+    selLadoDois1.addEventListener("change", function(e){
+        fn3(e);
+    })
+
+    container_select_bx_2.appendChild(selLadoDois1);
+
+    const textLado2_2 = document.createElement("p");
+    textLado2_2.innerHTML = "Baixo";
+    container_select_bx_2.appendChild(textLado2_2);
+    
+    const objLadoDois2 = [
+        {id:12, value:"", text:""},
+        {id:12, value:"C", text:"C"},
+        {id:12, value:"C#", text:"C#"},
+        {id:12, value:"D", text:"D"},
+    ];
+
+    const selLadoDois2 = select("container_select_bx_select").option(objLadoDois2);
+    selLadoDois2.addEventListener("change", function(e){
+        fn3(e);
+    })
+
+    container_select_bx_2.appendChild(selLadoDois2);
 
 
     const bx_q_acordes = document.createElement("div");
@@ -277,34 +329,18 @@ function fn_acordes(comp, q_cordas, afinacao){
     bx_tablatura.setAttribute("id", "bx_tablatura_id");
     bx_tablatura.innerHTML = "Tablatura";
 
-    const reversefinacao = [];
-
-    for (let rev = afinacao.length - 1; rev >= 0 ; rev--) {
-        
-        reversefinacao.push(afinacao[rev]);
-        
-    }
-
     const config = {
         quant_cordas:q_cordas,
-        afinacao:reversefinacao
+        afinacao:inverteArray(afinacao)
     }
-
-    console.log(afinacao)
 
     const tabb = tablatura(config);
 
- 
-
     bx_tablatura.appendChild(tabb.tb);
      
-
     container_select.appendChild(bx_tablatura);
 
- 
 
-    
-    
 
     const bx_partitura = document.createElement("div");
     bx_partitura.setAttribute("class", "bx_partitura");
