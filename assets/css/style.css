@@ -359,6 +359,8 @@ footer{
 .container_select_bx_select{
     width: 100%;
     margin-bottom: 10px;
+    padding: 2px;
+    border-radius: 2px;
 }
 
 
@@ -452,13 +454,18 @@ footer{
 }
 
 .peBxTextTab{
-    padding: 10px 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px 0px 0px;
 }
 
 .select_escala{
     width:30%;
     padding: 2px;
     margin-bottom: 10px;
+    border-radius: 2px;
 }
 
 .peBxContainer{
