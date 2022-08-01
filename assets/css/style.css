@@ -451,6 +451,24 @@ footer{
     font-size: 0.9em;
 }
 
+.peBxTextTab{
+    padding: 10px 15px;
+}
+
+.select_escala{
+    width:30%;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.peBxContainer{
+    padding: 10px 0px;
+}
+
+.bx_tab{
+    /* padding-bottom: 10px; */
+}
+
 
 
 @media(max-width:900px){

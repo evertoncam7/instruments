@@ -23,14 +23,14 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
 
     function fn_select(comp, e){
 
-        // const t = e.target.options[e.target.selectedIndex].value;
+        const t = e.target.options[e.target.selectedIndex].value;
 
-        const obj = update_braco(comp, e);
+        const obj = update_braco(comp, t);
         // console.log(obj.notas);
 
-        if (!obj) {
-            return;
-        }
+        // if (!obj) {
+        //     return;
+        // }
 
         const bde = [];
         obj.notas.forEach((el, i) => {
@@ -67,7 +67,7 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
     ];
 
     const s1 = select("select_escala").option(optEscalaTom);
-    s1.addEventListener("click", function(e){
+    s1.addEventListener("change", function(e){
 
         // console.log(e);
         fn_select(comp, e);
@@ -98,7 +98,7 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
     ];
     peBxContainer.appendChild(select("select_escala").option(optEscalaTom3));
 
-    const peBxText4 = c("div", "peBxText");
+    const peBxText4 = c("div", "peBxTextTab");
     peBxText4.innerHTML = "Tablatura";
     peBxContainer.appendChild(peBxText4);
 

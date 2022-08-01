@@ -40,6 +40,8 @@ function fn_acordes(comp, q_cordas, afinacao){
 
         function fn1(e){
 
+            console.log("Clicou!!");
+
             state.search[0] = e.target.options[e.target.selectedIndex].text;
 
             const s = state.search[0] + state.search[1] + state.search[2];

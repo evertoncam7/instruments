@@ -129,7 +129,7 @@ const stateEscala = {
 }
 function update_braco(comp, e){
 
-    stateEscala.search[0] = e.target.options[e.target.selectedIndex].text;
+    stateEscala.search[0] = e;
 
     const s = stateEscala.search[0];
 
@@ -168,7 +168,6 @@ function update_braco(comp, e){
         aa.querySelectorAll(".gradeNotasCasa")[(parseInt(arr[1])-1)].innerHTML = "<div class='boll_2'></div>";
         
     }
-
 
     return get_escala(s)[0];
 
