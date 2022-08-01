@@ -126,9 +126,9 @@ function componentInstrument(opt){
 
     const w = (init.width - 50);
 
-    let casa1 = (((w * 10)/100)*31)/100;
-    let casa2 = (((w * 10)/100)*31)/100;
-    widthCasa = (((w * 10)/100)*31)/100;
+    let casa1 = (((w * 10)/100)*31)/120;
+    let casa2 = (((w * 10)/100)*31)/120;
+    widthCasa = (((w * 10)/100)*31)/120;
     let somaCasa = 0;
 
     function c(el){
@@ -154,16 +154,6 @@ function componentInstrument(opt){
 
             const bxHeader1Container = c("div");
             bxHeader1Container.setAttribute("class", "bxHeader1Container");
-
-                // for (let headerCountButtons = 0; headerCountButtons <= 5; headerCountButtons++) {
-                    
-                //     const bxHeader1ContainerButtons = c("div");
-                //     bxHeader1ContainerButtons.setAttribute("class", "bxHeader1ContainerButtons");
-
-                //     bxHeader1Container.appendChild(bxHeader1ContainerButtons);
-
-                    
-                // }
 
             bxHeader1.appendChild(bxHeader1Container);
 
