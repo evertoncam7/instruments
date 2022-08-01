@@ -24,6 +24,8 @@
     <div class="card-anuncios">
         Anúncio aqui...
     </div>
+
+    <div class="" id="debug"></div>
     
 
     <script src="assets/js/jquery.min.js"></script>
@@ -62,6 +64,8 @@
         casa:0
     };
 
+    let countPosition = 1;
+
     const tabl = [];
 
     let countClick = 0;
@@ -83,7 +87,7 @@
 
                     }
 
-                    formatNotas.casasActive.push(notass[indexx].dataset.casa);
+                    formatNotas.casasActive.push(notass[indexx].dataset.casa+"-"+countPosition);
                     formatNotas.stateCasa = notass[indexx].dataset.casa;
                     notass[indexx].style.background = "green";
 
@@ -92,6 +96,7 @@
                     formatNotas.casa = (20 - n[1]) + 1;
                     console.log();
                     countClick = 1;
+                    countPosition++;
                 
                 }else if(countClicks == 1){
 
@@ -152,7 +157,7 @@
     }
 
 
-
+    
 </script>
 
 

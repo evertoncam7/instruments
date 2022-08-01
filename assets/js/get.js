@@ -36,8 +36,8 @@ function select(cl){
 
 }
 
-function notaTitulo(comp){
-    return comp.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector(".bxTop").querySelector(".bxHeader2").querySelectorAll(".bxHeader2_")[1].innerHTML = state.nota;
+function notaTitulo(comp, nota){
+    return comp.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector(".bxTop").querySelector(".bxHeader2").querySelectorAll(".bxHeader2_")[1].innerHTML = nota;
 }
 
 function widthBraco(numCasa, init){
@@ -78,7 +78,7 @@ function inverteArray(arr){
 }
 
 
-function filterArrayNotas(arr1){
+function filterArrayAcordes(arr1){
 
     const array1 = [];
 
@@ -113,8 +113,6 @@ function filterArrayNotas(arr1){
 
 function get_escala(escala){
 
-    // console.log(escala);
-
     const resp = bd_escalas.filter(function(e){
         return e.tom == escala;
     });
@@ -123,14 +121,20 @@ function get_escala(escala){
 
 }
 
+
+const stateEscala = {
+    search:[],
+    noteOld:[],
+    nota:""
+}
 function update_braco(comp, e){
 
-    // console.log(e);
+    stateEscala.search[0] = e.target.options[e.target.selectedIndex].text;
 
-    state.search[0] = e.target.options[e.target.selectedIndex].text;
+    const s = stateEscala.search[0];
 
-    const s = state.search[0];
-    state.nota = s;
+   
+    stateEscala.nota = s;
 
     if(state.noteOld.length){
 
@@ -142,12 +146,23 @@ function update_braco(comp, e){
 
     }
 
-    notaTitulo(comp);
+
+    if(stateEscala.noteOld.length){
+
+        for (let cleanState = 0; cleanState < stateEscala.noteOld.length; cleanState++) {
+            comp.querySelectorAll(".num_cordas")[stateEscala.noteOld[cleanState][0]-1].querySelectorAll(".gradeNotasCasa")[stateEscala.noteOld[cleanState][1]-1].innerHTML = "";    
+        }
+
+        stateEscala.noteOld = [];
+
+    }
+
+    notaTitulo(comp, s);
 
     for (let index = 0; index < (get_escala(s)[0] ? get_escala(s)[0].notas.length : 0); index++) {
 
         const arr = get_escala(s)[0].notas[index].split("-");
-        state.noteOld.push([parseInt(arr[0]), parseInt(arr[1])]);
+        stateEscala.noteOld.push([parseInt(arr[0]), parseInt(arr[1])]);
         
         const aa = comp.querySelectorAll(".num_cordas")[(parseInt(arr[0])-1)];
         aa.querySelectorAll(".gradeNotasCasa")[(parseInt(arr[1])-1)].innerHTML = "<div class='boll_2'></div>";
@@ -155,6 +170,7 @@ function update_braco(comp, e){
     }
 
 
+    return get_escala(s)[0];
 
 }
 

@@ -1,7 +1,8 @@
 
 
 const tb_state = {
-    oldNotas:[]
+    oldNotas:[],
+    oldEscalas:[]
 };
 
 
@@ -13,13 +14,8 @@ function tablatura(config){
         return el;
     }
 
-    const tb = c("div", "tb-box");
-
-   
-
-    // tb.appendChild(tb_title);
-
  
+    const tb = c("div", "tb-box");
 
     const tb_name = c("div", "tb-name");
 
@@ -72,39 +68,87 @@ function tablatura(config){
 
             function add(casasActive){
 
-                if (tb_state.oldNotas.length) {
-                    for (let indexOld = 0; indexOld < tb_state.oldNotas.length; indexOld++) {
-                        
-                        tb_state.oldNotas[indexOld].innerHTML = "";
-                        
-                    }
-                }
+                
 
-                if (casasActive.length) {
-                    // console.log("Active...");
 
-                    for (let indexActive = 0; indexActive < casasActive.length; indexActive++) {
+                if(config.type == "escala"){
 
-                        const cord = tb_container_grade_notas.querySelectorAll(".tb-container-grade-notas-notas")[5 - casasActive[indexActive].corda];
-                        // const cord = tb_container_grade_notas.querySelectorAll(".tb-container-grade-notas-notas")[casasActive[indexActive].corda];
-                        tb_state.oldNotas.push(cord);
+                    
 
-                        for (let indexCordaCasa = 0; indexCordaCasa < casasActive[indexActive].casa; indexCordaCasa++) {
+                    if(tb_state.oldEscalas.length){
+                        for (let indexEsc = 0; indexEsc < tb_state.oldEscalas.length; indexEsc++) {
                             
-                            const casa = c("div", "tb-container-grade-notas-notas-casa");
-    
-                            if (indexCordaCasa == casasActive[indexActive].casa - 1) {
-                                casa.innerHTML = casasActive[indexActive].text;
-                                cord.appendChild(casa);
-                            }
-    
-    
+                            tb_state.oldEscalas[indexEsc].innerHTML = "";
+                        
+                        }
+                    }
+                    
+
+                    const  gradeNotasContainer = c("div", "grade-notas-container");
+                    tb_container.appendChild(gradeNotasContainer);
+
+                    for (let index = 0; index < config.quant_cordas; index++) {
+                     
+                        const cc = c("div", "corda-grade-container");
+                        gradeNotasContainer.appendChild(cc);
+
+                        for (let indexBxCasa = 0; indexBxCasa < casasActive.length; indexBxCasa++) {
+                            
+                            const ccc = c("div", "corda-grade-container-bx");
+                            cc.appendChild(ccc);
+                            
                         }
                         
-    
                     }
-                    
-                    
+
+
+
+                    for (let indexPosCasa = 0; indexPosCasa < casasActive.length; indexPosCasa++) {
+
+                        const r_corda = (5 - casasActive[indexPosCasa].corda); 
+                        const r_casa = casasActive[indexPosCasa].casa;
+
+                        const r_text =  r_casa;
+
+                        const r_cordas = gradeNotasContainer.querySelectorAll(".corda-grade-container");
+                        const r_casas = r_cordas[r_corda].querySelectorAll(".corda-grade-container-bx")[indexPosCasa].innerHTML = r_text;
+                        // console.log();
+                        tb_state.oldEscalas.push(r_cordas[r_corda].querySelectorAll(".corda-grade-container-bx")[indexPosCasa]);
+                    }
+
+                }
+
+                if (config.type == "acorde") {
+
+                    if (tb_state.oldNotas.length) {
+                        for (let indexOld = 0; indexOld < tb_state.oldNotas.length; indexOld++) {
+                            
+                            tb_state.oldNotas[indexOld].innerHTML = "";
+                            
+                        }
+                    }
+
+
+                    if (casasActive.length) {
+
+                        let countC = 0;
+                        for (let indexActive = 0; indexActive < casasActive.length; indexActive++) {            
+
+                            const cord = tb_container_grade_notas.querySelectorAll(".tb-container-grade-notas-notas")[5 - casasActive[indexActive].corda];
+                            // const cord = tb_container_grade_notas.querySelectorAll(".tb-container-grade-notas-notas")[casasActive[indexActive].corda];
+                            tb_state.oldNotas.push(cord);
+
+                            
+                                const casa = c("div", "tb-container-grade-notas-notas-casa");
+                                casa.innerHTML = casasActive[indexActive].text;
+                                cord.appendChild(casa);
+                            
+
+                            countC++;
+
+                        }
+                        
+                    }
                 }
                 
             }

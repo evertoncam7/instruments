@@ -45,7 +45,7 @@ function fn_acordes(comp, q_cordas, afinacao){
             const s = state.search[0] + state.search[1] + state.search[2];
             state.nota = s;
 
-            notaTitulo(comp);
+            notaTitulo(comp, s);
 
             state.data = [];
 
@@ -81,6 +81,16 @@ function fn_acordes(comp, q_cordas, afinacao){
 
             function fAcorde(i = 0){
 
+                if(stateEscala.noteOld.length){
+
+                    for (let cleanState = 0; cleanState < stateEscala.noteOld.length; cleanState++) {
+                        comp.querySelectorAll(".num_cordas")[stateEscala.noteOld[cleanState][0]-1].querySelectorAll(".gradeNotasCasa")[stateEscala.noteOld[cleanState][1]-1].innerHTML = "";    
+                    }
+            
+                    stateEscala.noteOld = [];
+            
+                }
+
                 if(state.noteOld.length){
 
                     for (let cleanState = 0; cleanState < state.noteOld.length; cleanState++) {
@@ -108,8 +118,7 @@ function fn_acordes(comp, q_cordas, afinacao){
 
                     });
 
-                    
-                    tabb.add(filterArrayNotas(bdt));
+                    tabb.add(filterArrayAcordes(bdt));
 
                 }
                
@@ -171,7 +180,7 @@ function fn_acordes(comp, q_cordas, afinacao){
                 const s = state.search[0] + state.search[1] + state.search[2];
                 state.nota = s;
 
-                notaTitulo(comp);
+                notaTitulo(comp, s);
 
                 console.log(s);
            
@@ -221,7 +230,7 @@ function fn_acordes(comp, q_cordas, afinacao){
             const s = state.search[0] + state.search[1] + state.search[2];
             state.nota = s;
 
-            notaTitulo(comp);
+            notaTitulo(comp, s);
         
             if(state.noteOld.length){
 
@@ -325,7 +334,8 @@ function fn_acordes(comp, q_cordas, afinacao){
 
     const config = {
         quant_cordas:q_cordas,
-        afinacao:inverteArray(afinacao)
+        afinacao:inverteArray(afinacao),
+        type:"acorde"
     }
 
     const tabb = tablatura(config);
