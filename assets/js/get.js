@@ -53,11 +53,13 @@ function testeNode(c){
 }
 
 function activeButtom(btn){
+
     const b = document.querySelectorAll(".btn_bx_left");
     for (let index = 0; index < b.length; index++) {
         b[index].classList.remove("activeButtom");   
     }
     btn.classList.add("activeButtom");
+    
 }
 
 function scrollNotas(comp, obj){

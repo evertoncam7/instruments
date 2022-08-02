@@ -22,7 +22,7 @@ const bd = [
         cordasNull:[],
         dedilhado:[],
         description:"",
-        pos:701
+        pos:750
     },
     {
         id:2, 
@@ -34,7 +34,7 @@ const bd = [
         cordasNull:[],
         dedilhado:[],
         description:"",
-        pos:465
+        pos:355
     },
     {
         id:2, 
@@ -46,7 +46,7 @@ const bd = [
         cordasNull:[],
         dedilhado:[],
         description:"",
-        pos:326
+        pos:241
     },
     {
         id:3, 
@@ -189,12 +189,14 @@ const bd_escalas = [
             "6-16-A",
             "6-15-A#"
         ],
-        sequencia:[]
+        sequencia:[],
+        pos:499
     },
     {
         id:1,
         tom:"C",
         notas:[],
-        sequencia:[]
+        sequencia:[],
+        pos:0
     },
 ];

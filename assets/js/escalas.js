@@ -17,6 +17,12 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
     const peBxContainer = c("div", "peBxContainer");
     pe.appendChild(peBxContainer);
 
+    const peBxContainerInner_1 = c("div", "peBxContainerInner_1");
+    peBxContainer.appendChild(peBxContainerInner_1);
+
+    const peBxContainerInner_2 = c("div", "peBxContainerInner_1");
+    peBxContainer.appendChild(peBxContainerInner_2);
+
 
     // COMEÇO DOS SELECTS
 
@@ -56,7 +62,7 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
 
     const peBxText = c("div", "peBxText");
     peBxText.innerHTML = "Tom";
-    peBxContainer.appendChild(peBxText);
+    peBxContainerInner_1.appendChild(peBxText);
 
     const optEscalaTom = [
         {id:1, value:"", text:""},
@@ -74,29 +80,29 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
 
     });
 
-    peBxContainer.appendChild(s1);
+    peBxContainerInner_1.appendChild(s1);
 
     const peBxText2 = c("div", "peBxText");
     peBxText2.innerHTML = "#/b";
-    peBxContainer.appendChild(peBxText2);
+    peBxContainerInner_1.appendChild(peBxText2);
 
     const optEscalaTom2 = [
         {id:1, value:"", text:""},
         {id:1, value:"", text:"#"},
         {id:1, value:"", text:"b"},
     ];
-    peBxContainer.appendChild(select("select_escala").option(optEscalaTom2));
+    peBxContainerInner_1.appendChild(select("select_escala").option(optEscalaTom2));
 
     const peBxText3 = c("div", "peBxText");
     peBxText3.innerHTML = "Tipo";
-    peBxContainer.appendChild(peBxText3);
+    peBxContainerInner_1.appendChild(peBxText3);
 
     const optEscalaTom3 = [
         {id:1, value:"", text:""},
         {id:1, value:"", text:"Maior"},
         {id:1, value:"", text:"Menor Harmônica"},
     ];
-    peBxContainer.appendChild(select("select_escala").option(optEscalaTom3));
+    peBxContainerInner_1.appendChild(select("select_escala").option(optEscalaTom3));
 
     const peBxText4 = c("div", "peBxTextTab");
     peBxText4.innerHTML = "Tablatura";

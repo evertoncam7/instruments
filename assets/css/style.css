@@ -82,6 +82,7 @@ body{
     color: #000;
     font-size: 1.1em;
     font-weight: bold;
+    padding: 10px;
 }
 
 .bxTopTitle{
@@ -286,7 +287,10 @@ box-shadow:  3px 3px 6px #c6c6c6,
 }
 
 .activeButtom{
-    border: 1px solid #111;
+    /* border: 1px solid #111; */
+    background: #e9e9e9;
+box-shadow:  5px 5px 10px #e2e2e2,
+             -5px -5px 10px #f0f0f0;
 }
 
 .bx_controll2{
@@ -306,10 +310,10 @@ box-shadow:  3px 3px 6px #c6c6c6,
             inset -5px -5px 10px #1d1d21; */
 }
 
-.btn_bx_left:active{
+/* .btn_bx_left:active{
     box-shadow:  1px 1px 10px #272727,
              -1px -1px 10px #3f3f3f;
-}
+} */
 
 .big-footer{
     width: 100%;
@@ -466,19 +470,31 @@ box-shadow:  20px 20px 60px #bebebe,
     padding: 10px 0px 0px 0px;
 }
 
+
+
+/* Escalas */
+
+.peBxContainer{
+    padding: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.peBxContainerInner_1{
+    flex-basis: 50%;
+    padding: 10px 15px 0px 15px;
+}
+
 .select_escala{
-    width:30%;
+    width:50%;
     padding: 2px;
     margin-bottom: 10px;
     border-radius: 2px;
 }
 
-.peBxContainer{
-    padding: 10px 0px;
-}
-
 .bx_tab{
     /* padding-bottom: 10px; */
+    flex-basis: 100%;
 }
 
 
