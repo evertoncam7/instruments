@@ -59,14 +59,20 @@ function activeButtom(btn){
         b[index].classList.remove("activeButtom");   
     }
     btn.classList.add("activeButtom");
-    
+
 }
 
 function scrollNotas(comp, obj){
+
     const bx = comp.parentNode.parentNode.parentNode.parentNode.parentNode;
     if (document.getElementById(bx.id) && obj) {
-        document.getElementById(bx.id).scrollLeft = parseInt(obj.pos);
+        // document.getElementById(bx.id).scrollLeft = parseInt(obj.pos);
+        document.getElementById(bx.id).scroll({
+            left: parseInt(obj.pos),
+            behavior:"smooth"
+        });
     }
+
 }
 
 function inverteArray(arr){
@@ -135,6 +141,8 @@ function update_braco(comp, e){
 
     const s = stateEscala.search[0];
 
+    
+
    
     stateEscala.nota = s;
 
@@ -172,6 +180,67 @@ function update_braco(comp, e){
     }
 
     return get_escala(s)[0];
+
+}
+
+
+function get_escala_intervalo(tom){
+
+    const r = get_escala(tom)[0];
+    const escala = r.escala;
+    const intervalo = r.intervalo;
+
+    const bx = document.createElement("div");
+    bx.setAttribute("class", "get_escala_intervalo-bx");
+
+        const bxTitle = document.createElement("div");
+        bxTitle.setAttribute("class", "get_escala_intervalo-bx-title");
+        bxTitle.innerHTML = "Intervalos";
+        bx.appendChild(bxTitle);
+
+        const bx1 = document.createElement("div");
+        bx1.setAttribute("class", "get_escala_intervalo-bx-inner-1");
+        bx.appendChild(bx1);
+
+            for (let index = 0; index < escala.length; index++) {
+                
+                const bx1Inner = document.createElement("div");
+                bx1Inner.setAttribute("class", "get_escala_intervalo-bx-inner-1-casa");
+                bx1Inner.innerHTML = escala[index];
+                bx1.appendChild(bx1Inner);
+                
+            }
+
+        const bx2 = document.createElement("div");
+        bx2.setAttribute("class", "get_escala_intervalo-bx-inner-2");
+        bx.appendChild(bx2);
+
+            const bx2Inner1 = document.createElement("div");
+            bx2Inner1.setAttribute("class", "get_escala_intervalo-bx-inner-2-casa");
+            bx2Inner1.style.width = "50%";
+            bx2.appendChild(bx2Inner1);
+
+
+            for (let index2 = 0; index2 < intervalo.length + 1; index2++) {
+                    
+                const bx2Inner = document.createElement("div");
+                bx2Inner.setAttribute("class", "get_escala_intervalo-bx-inner-2-casa");
+                if (index2 < intervalo.length ) {
+                    bx2Inner.innerHTML = intervalo[index2];
+                }else{
+                    bx2Inner.style.width = "50%";
+                }
+                
+                bx2.appendChild(bx2Inner);
+
+            }
+
+
+
+    console.log(escala, intervalo);
+    console.log("Intervalo...");
+
+    return bx;
 
 }
 

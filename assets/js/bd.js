@@ -164,7 +164,10 @@ const bd_escalas = [
         id:1,
         tom:"C",
         notas:['1-19-F#', '1-17-G#', '2-20-A#', '2-19-B', '2-17-C#', '3-20-D#', '3-18-F', '3-17-F#', '4-20-G#', '4-18-A#', '4-17-B', '5-19-C#', '5-17-D#', '6-20-F', '6-19-F#', '6-17-G#'],
-        sequencia:[]
+        sequencia:[],
+        pos:0,
+        escala:[],
+        intervalo:[]
     },
     {
         id:1,
@@ -190,7 +193,9 @@ const bd_escalas = [
             "6-15-A#"
         ],
         sequencia:[],
-        pos:499
+        pos:499,
+        escala:["F", "G", "A", "Bb", "C", "D", "E", "F"],
+        intervalo:["1", "1", "1/2", "1", "1", "1", "1/2"]
     },
     {
         id:1,

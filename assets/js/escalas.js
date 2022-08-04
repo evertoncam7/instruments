@@ -20,7 +20,7 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
     const peBxContainerInner_1 = c("div", "peBxContainerInner_1");
     peBxContainer.appendChild(peBxContainerInner_1);
 
-    const peBxContainerInner_2 = c("div", "peBxContainerInner_1");
+    const peBxContainerInner_2 = c("div", "peBxContainerInner_2");
     peBxContainer.appendChild(peBxContainerInner_2);
 
 
@@ -30,6 +30,9 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
     function fn_select(comp, e){
 
         const t = e.target.options[e.target.selectedIndex].value;
+
+        peBxContainerInner_2.innerHTML = "";
+        peBxContainerInner_2.appendChild(get_escala_intervalo(t));
 
         const obj = update_braco(comp, t);
         // console.log(obj.notas);
@@ -99,7 +102,8 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
 
     const optEscalaTom3 = [
         {id:1, value:"", text:""},
-        {id:1, value:"", text:"Maior"},
+        {id:1, value:"", text:"Maior (Aberta)"},
+        {id:1, value:"", text:"Maior (Fechada)"},
         {id:1, value:"", text:"Menor Harmônica"},
     ];
     peBxContainerInner_1.appendChild(select("select_escala").option(optEscalaTom3));
