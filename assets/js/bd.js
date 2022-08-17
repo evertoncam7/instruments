@@ -162,7 +162,7 @@ const bd = [
 const bd_escalas = [
     {
         id:1,
-        tom:"C",
+        tom:"F#",
         notas:['1-19-F#', '1-17-G#', '2-20-A#', '2-19-B', '2-17-C#', '3-20-D#', '3-18-F', '3-17-F#', '4-20-G#', '4-18-A#', '4-17-B', '5-19-C#', '5-17-D#', '6-20-F', '6-19-F#', '6-17-G#'],
         sequencia:[],
         pos:0,
@@ -205,3 +205,77 @@ const bd_escalas = [
         pos:0
     },
 ];
+
+
+const bd_exer_acorde = [
+    {id:"exer-acorde-01", name:"Exercício 01 - 30 bpm", bpm:"", n:[], description:"Este exercício consiste em dedo por dedo da mão esquerda(Destro) ir precionando as notas montando um acorde e depois do acorde formado varrer todas as cordas com a mão direita treinando a coordenação motora em baixa velocidade. (Faça junto com o app)"},
+    {id:"exer-acorde-02", name:"Exercício 02 - 75 bpm", bpm:"", n:[], description:"Este exercício diferente do primeiro consiste em precionar as notas com os dedos da mão esquerda(Destro) para montar um acorde de forma simultânea e depois varrer com os dedos da mão direita as cordas para sair o som. (Fazer com o app)"},
+    {id:"exer-acorde-03", name:"Exercício 03 - 100 bpm", bpm:"", n:[], description:"Desc 03"},
+];
+
+
+
+
+
+
+
+
+
+
+
+// PAGE MÚSICAS
+
+const bd_muscas_index = [
+
+    {id:"m-00", al:"A"},
+    {id:"m-00", al:"B"},
+    {id:"m-00", al:"C"},
+    {id:"m-00", al:"D"},
+    {id:"m-00", al:"E"},
+    {id:"m-00", al:"F"},
+    {id:"m-00", al:"G"},
+    {id:"m-00", al:"H"},
+    {id:"m-00", al:"I"},
+    {id:"m-00", al:"J"},
+    {id:"m-00", al:"K"},
+    {id:"m-00", al:"L"},
+    {id:"m-00", al:"M"},
+    {id:"m-00", al:"N"},
+    {id:"m-00", al:"H"},
+    {id:"m-00", al:"O"},
+    {id:"m-00", al:"P"},
+    {id:"m-00", al:"Q"},
+    {id:"m-00", al:"R"},
+    {id:"m-00", al:"S"},
+    {id:"m-00", al:"T"},
+    {id:"m-00", al:"U"},
+    {id:"m-00", al:"V"},
+    {id:"m-00", al:"W"},
+    {id:"m-00", al:"H"},
+    {id:"m-00", al:"X"},
+    {id:"m-00", al:"Y"},
+    {id:"m-00", al:"Z"},
+    
+];
+
+const bd_musica_bandas = [
+    {id:"m-01", name:"AC/DC"},
+    {id:"m-01", name:"Angra"},
+    {id:"m-01", name:"Barão vermelho"},
+    {id:"m-01", name:"Biquini Cavadão"},
+    {id:"m-01", name:"J Quest"},
+    {id:"m-01", name:"Capital Inicial"},
+    {id:"m-01", name:"Jorge e Mateus"},
+    {id:"m-01", name:"Gustavo Lima"},
+    {id:"m-01", name:"Hugo e Guilherme"},
+    {id:"m-01", name:"Henrique e Juliano"},
+    {id:"m-01", name:"Zé Neto e Cristiano"},
+    {id:"m-01", name:"Cristiano Araújo"},
+    {id:"m-01", name:"Marília Mendonça"},
+    {id:"m-01", name:"Zezé di Camargo e Luciano"},
+    {id:"m-01", name:"Roupa Nova"},
+];
+
+
+
+

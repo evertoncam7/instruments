@@ -456,6 +456,7 @@ function componentInstrument(opt){
                     
                     bx_controll2Center.appendChild(comp.create("TESTE ARPEJOS"));
                     activeButtom(btn_bx_left3);
+
                 });
 
                 bxButton.appendChild(btn_bx_left3);
@@ -464,11 +465,25 @@ function componentInstrument(opt){
                 btn_bx_left4.setAttribute("class", "btn_bx_left");
                 btn_bx_left4.innerHTML = "EXERCÍCIOS";
                 btn_bx_left4.addEventListener("click", function(){
-                    bx_controll2Center.appendChild(comp.create("TESTE EXERCÍCIOS"));
+
+                    bx_controll2Center.appendChild(comp.create(page_exercicios(gradeNotas)));
                     activeButtom(btn_bx_left4);
+
                 });
 
                 bxButton.appendChild(btn_bx_left4);
+
+                const btn_bx_left5 = c("div");
+                btn_bx_left5.setAttribute("class", "btn_bx_left");
+                btn_bx_left5.innerHTML = "MÚSICAS";
+                btn_bx_left5.addEventListener("click", function(){
+
+                    bx_controll2Center.appendChild(comp.create(fn_musicas()));
+                    activeButtom(btn_bx_left5);
+
+                });
+
+                bxButton.appendChild(btn_bx_left5);
 
                 bx_left.appendChild(bxButton);
 

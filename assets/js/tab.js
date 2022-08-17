@@ -100,8 +100,7 @@ function tablatura(config){
                         }
                         
                     }
-
-
+                    
 
                     for (let indexPosCasa = 0; indexPosCasa < casasActive.length; indexPosCasa++) {
 

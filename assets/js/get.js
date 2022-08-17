@@ -2,8 +2,51 @@
 
 function get(val){
 
-    let result = bd.filter(function(v){
+    const result = bd.filter(function(v){
         return v.name == val;
+    });
+    
+    return result;
+
+};
+
+function get_exer_acorde(val){
+
+    const result = bd_exer_acorde.filter(function(v){
+        return v.id == val;
+    });
+    
+    return result;
+
+};
+
+function get_exer_acorde_all(){
+
+    const result = bd_exer_acorde.map(function(v, i){
+        return v;
+    });
+    
+    return result;
+
+};
+
+function get_musicac_alfabeto_all(){
+
+    const result = bd_muscas_index.map(function(v, i){
+        return v;
+    });
+    
+    return result;
+
+};
+
+// Músicas
+
+function get_musicas_search(val){
+
+    const result = bd_musica_bandas.filter(function(v){
+        const n = v.name[0];
+        return n == val;
     });
     
     return result;
@@ -220,7 +263,6 @@ function get_escala_intervalo(tom){
             bx2Inner1.style.width = "50%";
             bx2.appendChild(bx2Inner1);
 
-
             for (let index2 = 0; index2 < intervalo.length + 1; index2++) {
                     
                 const bx2Inner = document.createElement("div");
@@ -236,13 +278,21 @@ function get_escala_intervalo(tom){
             }
 
 
-
     console.log(escala, intervalo);
     console.log("Intervalo...");
 
     return bx;
 
 }
+
+
+function cleanState(){
+
+
+
+
+}
+
 
 
 
