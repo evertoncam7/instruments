@@ -31,6 +31,14 @@ function fn_musicas(){
                 
                 const list_bandas_li = c("div", "list-bandas-li");
                 list_bandas_li.innerHTML = re[index].name;
+                list_bandas_li.addEventListener("click", function(){
+
+                    const slug = slug_title(re[index].name);
+
+                    document.location.href = "p.html?"+slug;
+
+                });
+                
                 list_bandas.appendChild(list_bandas_li);
                 
             }

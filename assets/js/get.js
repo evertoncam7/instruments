@@ -53,6 +53,23 @@ function get_musicas_search(val){
 
 };
 
+// Artista
+
+
+function get_artista(val){
+
+    const result = bd_artistas.filter(function(v){
+
+        console.log(val, v.name);
+    
+        return slug_title(v.name) == val;
+        
+    });
+    
+    return result;
+
+};
+
 function select(cl){
 
     const container_select_bx_select_1 = document.createElement("select");
@@ -290,6 +307,18 @@ function cleanState(){
 
 
 
+
+}
+
+function slug_title(title){
+
+    const t  = title;
+    const t2 = t.normalize('NFD').replace(/[\u0300-\u036f]/g, "");;
+    const t3 = t2.toLowerCase();
+    const t4 = t3.split(" ");
+    const t5 = t4.join("-")
+
+    return t5;
 
 }
 

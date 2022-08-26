@@ -276,6 +276,67 @@ const bd_musica_bandas = [
     {id:"m-01", name:"Roupa Nova"},
 ];
 
+const bd_artistas = [
+    { name: "Henrique e Juliano", avatar:"assets/images/h-j.jpg", musicas:[
+        { name: "Liberdade provisória", letra: "Letra", cifra: "Cifra" },
+        { name: "Arranhão", letra: "Letra", cifra: "Cifra" },
+        { name: "Na hora da raiva", letra: "Letra", cifra: "Cifra" },
+    ]},
+    { name: "Zé Neto e Cristiano", avatar:"assets/images/z-n-c.jpg", musicas:[
+        { name: "Notificação preferida", letra: "Letra", cifra: "Cifra" },
+        { name: "Você beberia ou não beberia", letra: "Letra", cifra: "Cifra" },
+    ]},
+    { name: "Zezé di Camargo e Luciano", avatar:"assets/images/z-l.jpg", musicas:[
+        { name: "Dou a vida por um beijo", letra: "Letra", cifra: "Cifra" },
+        { name: "Dois corações e uma história", letra: "Letra", cifra: "Cifra" },
+        { name: "Imperfeito", letra: "Letra", cifra: "Cifra" },
+        { name: "Amada terra", letra: "Letra", cifra: "Cifra" },
+    ]},
+    { name: "Hugo e Guilherme", avatar:"assets/images/h-g.jpg", musicas:[
+        { name: "Coração na cama", letra: "Letra", cifra: "Cifra" },
+        { name: "Mal feito", letra: "Letra", cifra: "Cifra" },
+        { name: "Meu número", letra: "Letra", cifra: "Cifra" },
+    ]},
+];
+
+const bd_musicas = [
+    {id:"00222", name:"Dou a vida por um beijo", artist:"Zezé di Camargo e Luciano", letra:[
+        {linha: "Difícil demais te amar assim"},
+        {linha: "Minha tímidez tem que ter um fim"},
+        {linha: "Preciso perder o medo de falar"},
+        {linha: "Pra não te perder vou me declarar"},
+    ]}
+];
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// _DiaraMills_
+
+// https://www.wecamgirls24.com/videos/137020/cayenne-badkitty28-suck-fuck-josslescaf-2017-06-10-a0e2ec7f24734487/
