@@ -4,12 +4,15 @@
 function fn_musicas(){
 
     function c(el, cl, id = null){
+        
         const e = document.createElement(el);
         e.setAttribute("class", cl);
         if(id){
             e.setAttribute("id", id);
         }
+
         return e;
+
     }
 
     const musica = c("div", "page_musica");
@@ -34,7 +37,6 @@ function fn_musicas(){
                 list_bandas_li.addEventListener("click", function(){
 
                     const slug = slug_title(re[index].name);
-
                     document.location.href = "p.html?"+slug;
 
                 });

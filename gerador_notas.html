@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de notas</title>
+
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 100%;
+        }
+
+        .gerador_container{
+
+            width: 100%;
+            height: 100px;
+            /* background: red; */
+            margin-top: 50px;
+            overflow: auto;
+
+        }
+
+        .gerador_container_inner{
+           
+            height: 100%;
+            display: flex;
+
+        }
+
+        .bloco{
+            width: 35px;
+            height: 100%;
+            float: left;
+            margin-left: 2px;
+        }
+
+        .bloco_header{
+            width: 100%;
+            height: 40px;
+            background: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .bloco_body{
+            width: 100%;
+            height: calc(100% - 42px);
+            background: #ccc;
+            margin-top: 2px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .active_bloco_btn{
+            background: yellowgreen;
+        }
+
+        ul{
+            margin: 10px;
+        }
+
+        .popup_notas{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 1);
+
+            display: none;
+            flex-direction: column;
+        }
+
+        .popup_notas_header{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .popup_notas_body{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        .bx_nota{
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+            background: green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="gerador_header">
+
+            <span>New Faixa</span>
+            <span id="btn_mais">Mais</span>
+            <span id="btn_menos">Menos</span>
+            <input placeholder="Digite o bpm aqui..." />
+
+        </div>
+        <div class="gerador_container">
+            <div class="gerador_container_inner"></div>
+        </div>
+
+        <ul>
+            <li>Podendo ser criado várias pistas para ser renderizado em tablaturas diferentes.</li>
+        </ul>
+
+       
+
+    </div>
+    
+    <div class="popup_notas">
+        <div class="popup_notas_header">
+            Escolha uma nota.
+        </div>
+        <div class="popup_notas_body">
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+<script>
+
+
+const bd_notas = [
+    {name:"C", url:"do2.mp3"},
+    {name:"D", url:"teste_nota_2.mp3"},
+];
+
+
+function createEditor(){   
+
+
+    const countBloco = 120;
+    let width_gci = 20;
+    let total_container_inner = 0;
+
+    function c(el, cl, id = null){
+        
+        const e = document.createElement(el);
+        e.setAttribute("class", cl);
+        if(id){
+            e.setAttribute("id", id);
+        }
+
+        return e;
+
+    }
+
+
+    const trilha = [];
+
+    const gerador = document.querySelector(".gerador_container");
+    const gerador_container_inner = document.querySelector(".gerador_container_inner");
+
+
+    let wm = width_gci;
+    const btn_mais = document.querySelector("#btn_mais");
+    btn_mais.addEventListener("click", function(){
+
+        total_container_inner += wm;
+        wm += 10;
+        const b = document.querySelectorAll(".bloco");
+        for (let index = 0; index < b.length; index++) {
+
+            const element = b[index];
+            console.log(element);
+            element.style.width = wm +"px";
+            
+            
+        }
+
+        gerador_container_inner.style.width = total_container_inner + "px";
+        console.log(total_container_inner);
+        
+
+    });
+
+    const btn_menos = document.querySelector("#btn_menos");
+    btn_menos.addEventListener("click", function(){
+
+        total_container_inner -= wm;
+        wm -= 10;
+        const b = document.querySelectorAll(".bloco");
+
+        for (let index = 0; index < b.length; index++) {
+
+            const element = b[index];
+            console.log(element);
+            element.style.width = wm +"px";
+            
+        }
+
+        gerador_container_inner.style.width = total_container_inner + "px";
+        console.log(total_container_inner);
+        
+
+    });
+
+    gerador.appendChild(gerador_container_inner);
+
+    const state_bloco = {
+        old_btn:"",
+        chave:[]
+    }
+
+    for (let index = 0; index < countBloco; index++) {
+
+        state_bloco.chave[index] = 0;
+        trilha[index] = {}
+        
+        const bloco = c("div", "bloco");
+
+            const bloco_header = c("div", "bloco_header");
+            bloco_header.innerHTML = (index+1);
+
+            bloco.appendChild(bloco_header);
+
+            const bloco_body = c("div", "bloco_body");
+
+            bloco_body.addEventListener("click", (e) =>{
+
+                bloco_body.innerHTML = "";
+
+                if (state_bloco.chave[index]) {
+
+                    e.target.classList.remove("active_bloco_btn");
+                    state_bloco.old_btn = bloco_body;
+                    state_bloco.chave[index] = 0;
+                    trilha[index] = {};
+
+                }else{
+
+                    e.target.classList.add("active_bloco_btn");
+                    state_bloco.old_btn = bloco_body;
+                    state_bloco.chave[index] = 1;
+                    // trilha[index] = {som:"assets/sons/do2.mp3"};
+
+                    openPopup(index);
+
+                }
+
+                console.log(state_bloco.chave);
+                console.log(trilha);
+
+            });
+
+            bloco.appendChild(bloco_body);
+
+        gerador_container_inner.style.width = width_gci + "px";
+
+
+        gerador_container_inner.appendChild(bloco);
+
+        width_gci += 20;
+        
+    }
+
+    total_container_inner = width_gci;
+
+    console.log(state_bloco.chave);
+    console.log(gerador);
+    console.log(trilha);
+
+    let secon = 0;
+
+    function play(){
+
+        const p = setInterval(() => {
+
+            if(secon >= countBloco){
+                
+                clearInterval(p);
+                secon = 0;
+                return;
+
+            }
+
+            if (trilha[secon].som) {
+                const aud = new Audio(trilha[secon].som);
+                aud.play();
+            }
+
+            console.log("play ----------------->");
+            
+            secon++;
+        }, 100);
+
+    }
+
+    window.addEventListener("keydown", (event) => {
+
+        if (event.key != undefined) {
+            
+            console.log(event.keyCode);
+
+            if (event.keyCode == 67) {
+                
+                play();
+
+            }
+
+        }
+
+    });
+
+    function openPopup(indice_nota){
+
+        const p = document.querySelector(".popup_notas");
+        p.style.display = "flex";
+
+            const pbody = document.querySelector(".popup_notas_body");
+            pbody.innerHTML = "";
+
+            bd_notas.map(function(v){
+
+                console.log(v);
+                const bx_nota = c("div", "bx_nota");
+                bx_nota.innerHTML = v.name;
+                bx_nota.addEventListener("click", function(e){
+
+                    const bloco = document.querySelectorAll(".bloco_body");
+
+                    bloco[indice_nota].innerHTML = v.name;
+
+                    trilha[indice_nota] = {som:"assets/sons/"+v.url}
+
+                    e.target.parentNode.parentNode.style.display = "none";
+
+                });
+
+                pbody.appendChild(bx_nota);
+
+
+            });
+
+
+        p.addEventListener("click", function(e){
+           
+            if (e.target.classList.value == "popup_notas") {
+                e.target.style.display = "none";
+            }
+
+            console.log(e.target);
+
+        });
+    }
+
+
+}
+
+createEditor();
+
+</script>
+
+
+
+
+</html>

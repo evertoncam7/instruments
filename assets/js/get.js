@@ -1,5 +1,7 @@
 
 
+
+
 function get(val){
 
     const result = bd.filter(function(v){
@@ -321,6 +323,127 @@ function slug_title(title){
     return t5;
 
 }
+
+
+
+
+
+// Function time 
+
+const testDataNote = [
+
+]
+
+
+function recordSongs(){
+
+    const timeline = [];
+    let countTimeLine = 0;
+    let time = null;
+
+    let activeTecla = false;
+
+
+    // window.addEventListener("key")
+
+
+    window.addEventListener("keydown", function (event) {
+  
+        if (event.key !== undefined) {
+
+            console.log(event.keyCode);
+
+            if (event.keyCode == 68) {
+
+
+                console.log("Tecla 68");
+
+                clearInterval(time);
+                console.log(timeline);
+
+            }
+
+            if(event.keyCode == 80){
+                play();
+            }
+
+            if (event.keyCode == 83) {
+
+                activeTecla = true;
+                console.log("Tecla 83");
+                
+            }
+            
+        } else if (event.which !== undefined) {
+
+          // Handle the event with KeyboardEvent.which
+
+        }
+
+    });
+
+    window.addEventListener("keyup", (event) => {
+
+        if (event.key != undefined){
+
+            if (event.keyCode == 83) {
+                activeTecla = false;
+            }
+            
+        }
+
+    });
+
+
+    function createChannel(){
+
+        time = setInterval(() => {
+
+            if (activeTecla) {
+                timeline[countTimeLine] = {som:"assets/sons/do2.mp3"};
+            }else{
+                timeline[countTimeLine] = {};
+            }
+
+            countTimeLine++;
+            console.log("Start...");
+
+        }, 100);
+    
+    }
+
+    function play(){
+
+        console.log("Play...");
+
+        let countTime = 0;
+        const p = setInterval(() => {
+
+            if (timeline[countTime]) {
+                const a = new Audio(timeline[countTime].som);
+                a.play();
+            }
+            
+            countTime++;
+
+        }, 100);
+
+    }
+
+    return {
+        createChannel
+    }
+
+}
+
+const som = recordSongs();
+// som.createChannel();
+
+
+
+
+
+
 
 
 
