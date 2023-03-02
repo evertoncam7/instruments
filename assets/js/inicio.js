@@ -13,25 +13,17 @@ function inicio(){
 
     const page = c("page_inicio");
 
+    page.innerHTML = `<h2>História do violão</h2>
+    <p>O violão é um instrumento musical de cordas que existe há milhares de anos. Sua origem é incerta, mas muitos acreditam que ele tenha se originado na Espanha durante o século XV.</p>
 
-
-    page.innerHTML = `A teoria básica da música é um conjunto de conceitos e princípios que ajudam a entender e criar música. Esses conceitos incluem:
-
-    <ol>
+    <p>No entanto, o instrumento foi modificado e aprimorado ao longo do tempo. Durante o século XIX, o violão passou por diversas mudanças, incluindo a adição de uma sexta corda e o uso de madeiras mais resistentes e duráveis.</p>
     
-        <li><em>Notação musical:</em> a notação musical é um sistema de escrita que permite representar graficamente a altura, a duração e outros aspectos do som.</li>
-        <li><em>Melodia:</em> é a combinação de notas que formam uma linha melódica. A melodia é a parte da música que é cantada ou tocada com um instrumento solo.</li>
-        <li><em>Harmonia:</em> é a combinação de acordes que dão suporte à melodia. A harmonia é a parte da música que é tocada pelos instrumentos de acompanhamento.</li>
-        <li><em>Ritmo:</em> é o padrão de duração e acentuação das notas na música. O ritmo é o elemento que determina o movimento da música.</li>
-        <li><em>Forma:</em> é a organização dos elementos da música em uma estrutura coerente. A forma pode ser definida por seções, como verso e refrão, ou por uma estrutura mais complexa, como a sonata.</li>
-        <li><em>Dinâmica:</em> é a variação de intensidade na música, que pode ser suave ou forte, gradual ou abrupta.</li>
-        <li><em>Timbre:</em> é a qualidade única do som de cada instrumento ou voz, que permite diferenciar um som de outro.</li>
-        
-    </ol>
-        
-        
+    <p>A popularidade do violão aumentou ao longo do século XX, com o surgimento de grandes músicos como Andrés Segovia, que ajudaram a elevar a reputação do instrumento. A partir daí, o violão se tornou um instrumento amplamente utilizado em diversos gêneros musicais, desde o flamenco e a música clássica até o blues, o jazz e o rock.</p>
     
-    Esses elementos são a base da teoria da música e são fundamentais para a criação e interpretação musical. O estudo desses elementos permite compreender melhor como a música é construída e como ela afeta as emoções e sensações do ouvinte.`;
+    <p>Hoje em dia, o violão é um dos instrumentos musicais mais populares do mundo, com milhões de pessoas tocando e aprendendo a tocar em todo o mundo. É um instrumento versátil e acessível, que pode ser usado para criar uma variedade de sons e estilos musicais.</p>
+    `;
+
+    
 
     return page;
 

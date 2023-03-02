@@ -442,6 +442,16 @@ function componentInstrument(opt){
 
                 bxButton.appendChild(btn_bx_left_inicio);
 
+                const btn_bx_left_teoria_b = c("div");
+                btn_bx_left_teoria_b.setAttribute("class", "btn_bx_left");
+                btn_bx_left_teoria_b.innerHTML = "TEORIA BÁSICA";
+                btn_bx_left_teoria_b.addEventListener("click", function(){
+                    bx_controll2Center.appendChild(comp.create(page_teoria_b()));
+                    activeButtom(btn_bx_left_teoria_b);
+                });
+
+                bxButton.appendChild(btn_bx_left_teoria_b);
+
                 const btn_bx_left_tablatura = c("div");
                 btn_bx_left_tablatura.setAttribute("class", "btn_bx_left");
                 btn_bx_left_tablatura.innerHTML = "TABLATURA";
@@ -451,6 +461,16 @@ function componentInstrument(opt){
                 });
 
                 bxButton.appendChild(btn_bx_left_tablatura);
+
+                const btn_bx_left_afinacao = c("div");
+                btn_bx_left_afinacao.setAttribute("class", "btn_bx_left");
+                btn_bx_left_afinacao.innerHTML = "AFINAÇÃO";
+                btn_bx_left_afinacao.addEventListener("click", function(){
+                    bx_controll2Center.appendChild(comp.create(page_afinacao()));
+                    activeButtom(btn_bx_left_afinacao);
+                });
+
+                bxButton.appendChild(btn_bx_left_afinacao);
 
                 const btn_bx_left = c("div");
                 btn_bx_left.setAttribute("class", "btn_bx_left");

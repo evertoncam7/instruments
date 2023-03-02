@@ -667,6 +667,10 @@ box-shadow:  20px 20px 60px #bebebe,
     
 }
 
+.page_inicio > p{
+    padding: 5px 0px;
+}
+
 
 .bx_description{
     padding: 10px;
@@ -746,7 +750,7 @@ box-shadow:  20px 20px 60px #bebebe,
 
     .bx_left{
 
-        width: 100%;
+        width: 120%;
         height: 60px;
         display: relative;
         flex-direction: row;
