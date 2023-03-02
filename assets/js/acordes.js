@@ -342,6 +342,7 @@ function fn_acordes(comp, q_cordas, afinacao){
 
     const tabb = tablatura(config);
     bx_tablatura.appendChild(tabb.tb);
+
     container_select.appendChild(bx_tablatura);
 
     const bx_partitura = document.createElement("div");
@@ -349,6 +350,20 @@ function fn_acordes(comp, q_cordas, afinacao){
     bx_partitura.innerHTML = "Partitura...";
 
     // container_select.appendChild(bx_partitura);
+
+    const bx_description = document.createElement("div");
+    bx_description.setAttribute("class", "bx_description");
+
+    bx_description.innerHTML = `<h2>Acordes</h2>Acordes musicais são formados pela combinação de três ou mais notas musicais tocadas simultaneamente. Essas notas são geralmente escolhidas com base em uma escala musical ou harmonia específica e são agrupadas em acordes de acordo com suas relações de intervalo. Existem muitos tipos diferentes de acordes, mas os três mais comuns são os acordes maiores, menores e diminutos.
+    Acordes maiores são geralmente considerados agradáveis ​​e felizes, enquanto acordes menores são geralmente considerados tristes e melancólicos. Acordes diminutos têm uma qualidade tensa e instável, muitas vezes usada em música para criar tensão e dissonância.
+    
+    Um acorde pode ser representado por sua notação de símbolos de acordo com a convenção ocidental, como por exemplo: C maior seria representado como "C", C menor como "Cm" e C diminuto como "Cdim". Além disso, os acordes podem ser tocados em diferentes posições no braço do violão ou do teclado, o que produz diferentes sons e texturas.
+    
+    Dominar o conhecimento de acordes musicais é essencial para qualquer músico que deseja criar músicas, compor ou improvisar com outras pessoas. É importante estudar teoria musical e praticar a execução de diferentes acordes para desenvolver habilidades musicais e expandir sua compreensão da música.
+    `;
+
+
+    container_select.appendChild(bx_description);
 
 
     return container_select;

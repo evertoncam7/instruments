@@ -249,6 +249,8 @@ function update_braco(comp, e){
 function get_escala_intervalo(tom){
 
     const r = get_escala(tom)[0];
+    console.log("-----------------------------------");
+    console.log(r);
     const escala = r.escala;
     const intervalo = r.intervalo;
 
@@ -264,14 +266,18 @@ function get_escala_intervalo(tom){
         bx1.setAttribute("class", "get_escala_intervalo-bx-inner-1");
         bx.appendChild(bx1);
 
-            for (let index = 0; index < escala.length; index++) {
-                
-                const bx1Inner = document.createElement("div");
-                bx1Inner.setAttribute("class", "get_escala_intervalo-bx-inner-1-casa");
-                bx1Inner.innerHTML = escala[index];
-                bx1.appendChild(bx1Inner);
-                
+            if (escala) {
+                for (let index = 0; index < escala.length; index++) {
+                    
+                    const bx1Inner = document.createElement("div");
+                    bx1Inner.setAttribute("class", "get_escala_intervalo-bx-inner-1-casa");
+                    bx1Inner.innerHTML = escala[index];
+                    bx1.appendChild(bx1Inner);
+                    
+                }
             }
+
+            
 
         const bx2 = document.createElement("div");
         bx2.setAttribute("class", "get_escala_intervalo-bx-inner-2");
@@ -282,19 +288,23 @@ function get_escala_intervalo(tom){
             bx2Inner1.style.width = "50%";
             bx2.appendChild(bx2Inner1);
 
-            for (let index2 = 0; index2 < intervalo.length + 1; index2++) {
+            if (intervalo) {
+                for (let index2 = 0; index2 < intervalo.length + 1; index2++) {
                     
-                const bx2Inner = document.createElement("div");
-                bx2Inner.setAttribute("class", "get_escala_intervalo-bx-inner-2-casa");
-                if (index2 < intervalo.length ) {
-                    bx2Inner.innerHTML = intervalo[index2];
-                }else{
-                    bx2Inner.style.width = "50%";
+                    const bx2Inner = document.createElement("div");
+                    bx2Inner.setAttribute("class", "get_escala_intervalo-bx-inner-2-casa");
+                    if (index2 < intervalo.length ) {
+                        bx2Inner.innerHTML = intervalo[index2];
+                    }else{
+                        bx2Inner.style.width = "50%";
+                    }
+                    
+                    bx2.appendChild(bx2Inner);
+    
                 }
-                
-                bx2.appendChild(bx2Inner);
-
             }
+
+            
 
 
     console.log(escala, intervalo);

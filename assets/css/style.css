@@ -653,6 +653,35 @@ box-shadow:  20px 20px 60px #bebebe,
     margin-top: 10px;
 }
 
+.page_inicio{
+    padding: 20px;
+}
+
+.page_inicio > ol{
+    padding: 10px 40px;
+    
+}
+
+.page_inicio > ol > li{
+    padding: 5px 0px;
+    
+}
+
+
+.bx_description{
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
 @keyframes closedDescription{
     
 

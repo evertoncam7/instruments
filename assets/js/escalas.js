@@ -127,6 +127,33 @@ function page_escalas(comp, q_cordas, afinacao, q_casas){
     peBxContainer.appendChild(bx_tab);
 
 
+
+
+    const bx_description = document.createElement("div");
+    bx_description.setAttribute("class", "bx_description");
+
+    bx_description.innerHTML = `<h2>Escalas</h2>As escalas musicais são sequências de notas que seguem uma ordem específica e são utilizadas na criação de melodias e harmonias. Existem vários tipos de escalas, cada uma com uma sonoridade e função específicas. Algumas das escalas mais comuns são:
+
+    Escala Maior: É a escala mais usada na música ocidental e é composta por sete notas. A ordem das notas é: T - T - S - T - T - T - S (T = Tom, S = Semitom). A escala maior é usada para criar músicas alegres e animadas.
+    
+    Escala Menor: É a escala mais usada na música ocidental, depois da escala maior. Ela também é composta por sete notas e a ordem das notas é: T - S - T - T - S - T - T. A escala menor é usada para criar músicas mais tristes e melancólicas.
+    
+    Escala Pentatônica: É uma escala de cinco notas, amplamente utilizada na música popular e folclórica. A escala pentatônica maior é formada pelas notas: T - T - S - T - S. A escala pentatônica menor é formada pelas notas: T - S - T - T - S.
+    
+    Escala Cromática: É uma escala composta por doze notas consecutivas, sendo que cada nota difere da anterior por um semitom. Essa escala é utilizada para criar efeitos específicos na música, como cromatismo e dissonância.
+    
+    Escala Blues: É uma escala de seis notas utilizada no blues e em outros gêneros musicais. A escala blues é composta pelas notas: T - S - S - S - T - S. Essa escala é utilizada para criar um som característico e bluesy.
+    
+    Escala Dórica: É uma escala utilizada em gêneros musicais como o jazz e o funk. A escala dórica é composta pelas notas: T - S - T - T - T - S - T. Ela é utilizada para criar um som característico e sofisticado.
+    
+    Escala Lídia: É uma escala usada principalmente no jazz e na música moderna. A escala lídia é composta pelas notas: T - T - T - S - T - T - S. Ela é utilizada para criar um som suave e elegante.
+    
+    Essas são apenas algumas das escalas musicais existentes. Cada escala tem sua própria sonoridade e aplicação na música. É importante que os músicos aprendam sobre as escalas e suas características para poderem usá-las de forma criativa em suas composições.`;
+
+
+    pe.appendChild(bx_description);
+
+
     return pe;
 
 }
